@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Regulator AI Global â€” Deterministic Oversight for Orbital AI Infrastructure</title>
+<meta name="description" content="Cognitive Transport Protocolâ„¢ provides deterministic supervisory containment for orbital AI infrastructure â€” Starlink-class constellations, Orbital Data Centers, and LEO mega-constellations.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Syne:wght@400;600;700;800&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:         #02050d;
+  --navy:       #040810;
+  --ink:        #060c18;
+  --panel:      #080f1e;
+  --panel-hi:   #0b1424;
+  --border:     #0f1e33;
+  --border-hi:  #162840;
+  --gold:       #c8922a;
+  --gold-bright:#e8b44a;
+  --gold-dim:   #3a2506;
+  --gold-glow:  rgba(200,146,42,0.10);
+  --gold-mid:   #7a5518;
+  --blue:       #4a8fb5;
+  --blue-bright:#6ab0d4;
+  --red:        #c0392b;
+  --text:       #e0ecf4;
+  --text-dim:   #9db8cc;
+  --text-faint: #4a6880;
+  --white:      #edf3f8;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:#02050d;color:#e0ecf4;font-family:'Syne',sans-serif;line-height:1.6;overflow-x:hidden}
+
+/* TOP NAV */
+nav.top-nav{position:fixed;top:0;left:0;right:0;z-index:300;height:56px;display:flex;align-items:center;justify-content:space-between;padding:0 2.5rem;background:rgba(2,5,13,0.97);backdrop-filter:blur(20px);border-bottom:1px solid #0f1e33}
+.nav-logo{font-family:'DM Mono',monospace;font-size:0.7rem;letter-spacing:0.16em;text-transform:uppercase;color:#c8922a;text-decoration:none;display:flex;align-items:center;gap:0.75rem}
+.nav-logo::before{content:'â—Ž';color:#c8922a;font-size:0.8rem}
+.top-links{display:flex;gap:1.5rem;list-style:none}
+.top-links a{font-size:0.62rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#9db8cc;text-decoration:none;transition:color 0.2s}
+.top-links a:hover{color:#e0ecf4}
+.nav-cta{font-family:'DM Mono',monospace;font-size:0.64rem;letter-spacing:0.1em;text-transform:uppercase;color:#c8922a;border:1px solid #3a2506;padding:0.4rem 1rem;text-decoration:none;transition:all 0.2s}
+.nav-cta:hover{background:#7a5518;color:#fff}
+
+/* HERO */
+#hero{position:relative;min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:6rem 3rem 4rem;overflow:hidden;margin-top:56px}
+.hero-img-bg{position:absolute;inset:0;z-index:0}
+.hero-img-bg img{width:100%;height:100%;object-fit:cover;object-position:center 35%;opacity:0.12;filter:saturate(0.3) hue-rotate(180deg)}
+.hero-overlay{position:absolute;inset:0;z-index:1;background:rgba(2,5,13,0.95)}
+.hero-grid{position:absolute;inset:0;z-index:2;background-image:linear-gradient(rgba(200,146,42,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(200,146,42,0.03) 1px,transparent 1px);background-size:56px 56px;mask-image:radial-gradient(ellipse 80% 70% at 30% 50%,black,transparent)}
+.hero-content{position:relative;z-index:3;max-width:780px}
+.hero-tag{font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.22em;text-transform:uppercase;color:#c8922a;display:flex;align-items:center;gap:0.75rem;margin-bottom:2rem}
+.hero-tag::before{content:'';width:32px;height:1px;background:#c8922a}
+.pulse{display:inline-block;width:5px;height:5px;border-radius:50%;background:#e8b44a;animation:pulse 2.4s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.2}}
+.hero-headline{font-family:'Bebas Neue',sans-serif;font-size:clamp(3rem,7vw,6.5rem);line-height:0.93;letter-spacing:0.02em;color:#edf3f8;margin-bottom:1.75rem}
+.hero-headline em{color:#c8922a;font-style:normal}
+.hero-sub{font-size:1rem;color:#9db8cc;max-width:560px;line-height:1.8;font-weight:400}
+.hero-actions{display:flex;gap:0.85rem;flex-wrap:wrap;margin-top:2rem}
+.btn-primary{display:inline-flex;align-items:center;background:#7a5518;color:#edf3f8;font-family:'DM Mono',monospace;font-size:0.7rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:0.8rem 1.8rem;text-decoration:none;border:1px solid #c8922a;transition:all 0.2s}
+.btn-primary:hover{background:#c8922a;color:#02050d}
+.btn-ghost{display:inline-flex;align-items:center;color:#9db8cc;font-family:'DM Mono',monospace;font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;padding:0.8rem 1.5rem;border:1px solid #0f1e33;text-decoration:none;transition:all 0.2s}
+.btn-ghost:hover{color:#e0ecf4;border-color:#162840}
+.hero-stats{display:flex;gap:2.5rem;margin-top:3.5rem;padding-top:2.5rem;border-top:1px solid #0f1e33;flex-wrap:wrap}
+.stat-val{font-family:'DM Mono',monospace;font-size:1.05rem;font-weight:500;color:#c8922a;display:block}
+.stat-label{font-size:0.6rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#4a6880;margin-top:0.15rem}
+
+/* ORBITAL IMAGE BAND */
+.orbital-band{background:#02050d;border-bottom:1px solid #0f1e33}
+.orbital-band img{width:100%;height:auto;display:block;opacity:0.85;filter:saturate(0.75)}
+.orbital-band-caption{font-family:'DM Mono',monospace;font-size:0.58rem;letter-spacing:0.12em;text-transform:uppercase;color:#4a6880;text-align:center;padding:0.65rem 1rem}
+
+/* TICKER */
+.ticker-wrap{background:#040810;border-top:1px solid #0f1e33;border-bottom:1px solid #0f1e33;padding:0.5rem 0;overflow:hidden}
+.ticker-track{display:flex;animation:ticker 42s linear infinite;white-space:nowrap}
+.t-item{font-family:'DM Mono',monospace;font-size:0.58rem;letter-spacing:0.12em;text-transform:uppercase;color:#4a6880;padding:0 2.5rem;display:flex;align-items:center;gap:0.5rem}
+.t-dot{width:3px;height:3px;border-radius:50%;background:#3a2506;flex-shrink:0}
+@keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* SECTIONS */
+.section{position:relative;z-index:10;max-width:1100px;margin:0 auto;padding:5.5rem 3rem}
+.section-full{position:relative;z-index:10;width:100%;padding:5.5rem 0;border-top:1px solid #0f1e33;border-bottom:1px solid #0f1e33}
+.section-full .inner{max-width:1100px;margin:0 auto;padding:0 3rem}
+hr.div{border:none;border-top:1px solid #0f1e33;position:relative;z-index:10}
+.s-label{font-family:'DM Mono',monospace;font-size:0.62rem;letter-spacing:0.2em;text-transform:uppercase;color:#c8922a;display:flex;align-items:center;gap:0.6rem;margin-bottom:1.25rem}
+.s-label::before{content:'';width:18px;height:1px;background:#3a2506}
+h2{font-family:'Syne',sans-serif;font-size:clamp(1.75rem,3vw,2.5rem);font-weight:800;letter-spacing:-0.02em;line-height:1.15;color:#edf3f8;margin-bottom:1.25rem}
+.lead{font-size:0.98rem;color:#9db8cc;max-width:640px;line-height:1.8;margin-bottom:2rem}
+
+/* RISK GRID */
+.risk-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:#0f1e33;border:1px solid #0f1e33;margin-top:2.5rem}
+.risk-card{background:#080f1e;padding:1.75rem;position:relative;overflow:hidden;transition:background 0.2s}
+.risk-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,#c8922a,transparent)}
+.risk-card:hover{background:#0b1424}
+.rk-num{font-family:'DM Mono',monospace;font-size:0.57rem;letter-spacing:0.14em;color:#4a6880;margin-bottom:0.85rem;text-transform:uppercase}
+.rk-title{font-size:0.88rem;font-weight:700;color:#edf3f8;margin-bottom:0.6rem}
+.rk-desc{font-size:0.78rem;color:#9db8cc;line-height:1.65}
+
+/* URGENCY BAR */
+.urgency-bar{display:grid;grid-template-columns:repeat(4,1fr);margin-top:2.5rem;border:1px solid #162840;position:relative}
+.urgency-bar::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,#3a2506,#c8922a,#3a2506)}
+.u-item{padding:1.5rem 1.6rem;border-right:1px solid #0f1e33;background:#060c18}
+.u-item:last-child{border-right:none}
+.u-tag{font-family:'DM Mono',monospace;font-size:0.56rem;letter-spacing:0.12em;text-transform:uppercase;color:#c8922a;display:block;margin-bottom:0.5rem}
+.u-head{font-size:0.8rem;font-weight:700;color:#edf3f8;margin-bottom:0.4rem}
+.u-body{font-size:0.73rem;color:#9db8cc;line-height:1.6}
+
+/* TWO-COL LAYOUT */
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
+
+/* BENEFIT LIST */
+.benefit-list{display:flex;flex-direction:column;gap:1px;margin-top:2rem;background:#0f1e33}
+.b-row{display:flex;gap:1rem;align-items:flex-start;padding:1.1rem 1.2rem;background:#060c18;border-left:2px solid #3a2506;transition:border-color 0.2s,background 0.2s}
+.b-row:hover{border-left-color:#c8922a;background:#080f1e}
+.b-icon{width:26px;height:26px;background:rgba(200,146,42,0.07);border:1px solid #3a2506;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:0.7rem;color:#c8922a}
+.b-title{font-size:0.8rem;font-weight:700;color:#edf3f8;margin-bottom:0.25rem}
+.b-desc{font-size:0.75rem;color:#9db8cc;line-height:1.6}
+
+/* ARCH BOX */
+.arch-box{background:#080f1e;border:1px solid #162840;padding:1.6rem}
+.arch-eyebrow{font-family:'DM Mono',monospace;font-size:0.57rem;letter-spacing:0.14em;text-transform:uppercase;color:#4a6880;margin-bottom:1.4rem;text-align:center}
+.arch-layers{display:flex;flex-direction:column;gap:2px}
+.a-layer{display:grid;grid-template-columns:2rem 1fr auto;align-items:center;gap:0.6rem;padding:0.6rem 0.75rem;background:#060c18;border:1px solid #0f1e33;transition:background 0.2s}
+.a-layer:hover{background:rgba(200,146,42,0.03)}
+.a-layer.hi{background:rgba(200,146,42,0.04);border-color:#3a2506}
+.a-num{font-family:'DM Mono',monospace;font-size:0.56rem;color:#4a6880;text-align:right}
+.a-name{font-size:0.72rem;font-weight:600;color:#d0e4f0}
+.a-tag{font-family:'DM Mono',monospace;font-size:0.54rem;letter-spacing:0.07em;padding:0.16rem 0.4rem;border:1px solid}
+.tag-g{color:#c8922a;border-color:#3a2506;background:rgba(200,146,42,0.06)}
+.tag-t{color:#6ab0d4;border-color:#0d2640;background:rgba(74,143,181,0.06)}
+.tag-d{color:#4a6880;border-color:#4a6880}
+.arch-inv{font-family:'DM Mono',monospace;font-size:0.58rem;color:#4a6880;text-align:center;margin-top:0.8rem;font-style:italic}
+
+/* SCENARIO */
+.scenario{background:#080f1e;border:1px solid #0f1e33;border-left:3px solid #3a2506;padding:1.6rem 1.9rem;margin-top:1rem}
+.sc-eye{font-family:'DM Mono',monospace;font-size:0.58rem;letter-spacing:0.15em;text-transform:uppercase;color:#c8922a;margin-bottom:0.85rem}
+.sc-body{font-size:0.84rem;color:#9db8cc;line-height:1.75}
+.sc-body strong{color:#edf3f8}
+
+/* VISUAL IMAGE */
+.visual-img img{width:100%;display:block;border:1px solid #0f1e33}
+.visual-caption{font-family:'DM Mono',monospace;font-size:0.57rem;letter-spacing:0.1em;text-transform:uppercase;color:#4a6880;margin-top:0.6rem;text-align:center}
+
+/* PHASE CARDS */
+.phase-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1px;background:#0f1e33;border:1px solid #0f1e33;margin-top:2.5rem}
+.phase-card{background:#060c18;padding:1.75rem;position:relative}
+.phase-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,#3a2506,transparent)}
+.phase-num{font-family:'DM Mono',monospace;font-size:0.58rem;letter-spacing:0.14em;text-transform:uppercase;margin-bottom:0.7rem}
+.phase-title{font-size:0.88rem;font-weight:700;color:#edf3f8;margin-bottom:0.6rem}
+.phase-desc{font-size:0.76rem;color:#9db8cc;line-height:1.65}
+
+/* AUDIENCE CARDS */
+.aud-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:#0f1e33;border:1px solid #0f1e33;margin-top:2.5rem}
+.aud-card{background:#060c18;padding:1.5rem 1.4rem}
+.aud-type{font-family:'DM Mono',monospace;font-size:0.57rem;letter-spacing:0.15em;text-transform:uppercase;color:#c8922a;margin-bottom:0.75rem}
+.aud-head{font-size:0.84rem;font-weight:700;color:#edf3f8;margin-bottom:0.5rem}
+.aud-body{font-size:0.73rem;color:#9db8cc;line-height:1.6}
+
+/* RESOURCES */
+.res-layout{display:grid;grid-template-columns:1fr 1fr;gap:4rem}
+.res-list{list-style:none;display:flex;flex-direction:column;gap:2px;margin-top:1.5rem}
+.res-list li a{display:flex;align-items:center;justify-content:space-between;padding:0.85rem 1rem;background:#080f1e;border:1px solid #0f1e33;text-decoration:none;transition:all 0.2s}
+.res-list li a:hover{border-color:#162840;background:rgba(200,146,42,0.03)}
+.res-name{font-size:0.78rem;font-weight:600;color:#edf3f8}
+.res-meta{font-family:'DM Mono',monospace;font-size:0.57rem;color:#4a6880}
+.faq-list{display:flex;flex-direction:column;gap:2px;margin-top:1.5rem}
+.faq-item{padding:1.05rem 1.2rem;background:#080f1e;border:1px solid #0f1e33}
+.faq-q{font-size:0.78rem;font-weight:700;color:#edf3f8;margin-bottom:0.4rem}
+.faq-a{font-size:0.73rem;color:#9db8cc;line-height:1.65}
+
+/* CTP NOTE */
+.ctp-note{margin-top:1.75rem;padding:1.1rem 1.4rem;background:rgba(200,146,42,0.04);border:1px solid #3a2506;font-size:0.78rem;color:#9db8cc;line-height:1.65}
+.ctp-note strong{color:#edf3f8}
+
+/* CONTACT */
+.engage-wrap{text-align:center;padding:5.5rem 3rem;position:relative;z-index:10;max-width:1100px;margin:0 auto}
+.engage-wrap::before{content:'';position:absolute;top:3rem;left:50%;transform:translateX(-50%);width:360px;height:1px;background:linear-gradient(90deg,transparent,#3a2506,transparent)}
+.eng-head{font-family:'Bebas Neue',sans-serif;font-size:clamp(2rem,3.5vw,3rem);letter-spacing:0.02em;color:#edf3f8;margin-bottom:0.75rem}
+.eng-sub{font-size:0.92rem;color:#9db8cc;max-width:460px;margin:0 auto 1.75rem;line-height:1.7}
+.eng-email{font-family:'DM Mono',monospace;font-size:1rem;letter-spacing:0.06em;color:#c8922a;margin:0.5rem 0 1.5rem}
+.eng-email a{color:#c8922a;text-decoration:none;border-bottom:1px solid #3a2506;padding-bottom:1px;transition:color 0.2s}
+.eng-email a:hover{color:#e8b44a}
+.eng-contact{font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.08em;color:#4a6880}
+.eng-contact a{color:#9db8cc;text-decoration:none}
+.eng-contact a:hover{color:#c8922a}
+
+/* FOOTER */
+footer{border-top:1px solid #0f1e33;padding:1.6rem 3rem;display:flex;align-items:center;justify-content:space-between;position:relative;z-index:10}
+.ft-left{font-family:'DM Mono',monospace;font-size:0.59rem;letter-spacing:0.07em;color:#4a6880;line-height:1.65}
+.ft-links{display:flex;gap:1.75rem;list-style:none}
+.ft-links a{font-family:'DM Mono',monospace;font-size:0.59rem;letter-spacing:0.1em;text-transform:uppercase;color:#4a6880;text-decoration:none;transition:color 0.2s}
+.ft-links a:hover{color:#9db8cc}
+
+/* CROSS-LINK BANNER */
+.crosslink{background:#060c18;border-top:1px solid #0f1e33;border-bottom:1px solid #0f1e33;padding:0.9rem 3rem;display:flex;align-items:center;justify-content:center;gap:1.5rem;position:relative;z-index:10}
+.crosslink-text{font-family:'DM Mono',monospace;font-size:0.62rem;letter-spacing:0.1em;text-transform:uppercase;color:#4a6880}
+.crosslink a{font-family:'DM Mono',monospace;font-size:0.62rem;letter-spacing:0.1em;text-transform:uppercase;color:#c8922a;text-decoration:none;border-bottom:1px solid #3a2506;transition:color 0.2s}
+.crosslink a:hover{color:#e8b44a}
+
+/* MOBILE OVERRIDES */
+* { color: inherit; }
+body { background: #02050d !important; color: #e0ecf4 !important; }
+h1, h2, h3 { color: #edf3f8 !important; }
+.lead { color: #9db8cc !important; }
+.s-label { color: #c8922a !important; }
+.rk-num { color: #4a6880 !important; }
+.rk-title { color: #edf3f8 !important; }
+.rk-desc { color: #9db8cc !important; }
+.u-tag { color: #c8922a !important; }
+.u-head { color: #edf3f8 !important; }
+.u-body { color: #9db8cc !important; }
+.b-title { color: #edf3f8 !important; }
+.b-desc { color: #9db8cc !important; }
+.faq-q { color: #edf3f8 !important; }
+.faq-a { color: #9db8cc !important; }
+.stat-val { color: #c8922a !important; }
+.hero-headline { color: #edf3f8 !important; }
+.hero-headline em { color: #c8922a !important; }
+.hero-sub { color: #9db8cc !important; }
+.hero-tag { color: #c8922a !important; }
+.sc-body { color: #9db8cc !important; }
+.sc-body strong { color: #edf3f8 !important; }
+.a-name { color: #d0e4f0 !important; }
+.phase-title { color: #edf3f8 !important; }
+.phase-desc { color: #9db8cc !important; }
+.aud-head { color: #edf3f8 !important; }
+.aud-body { color: #9db8cc !important; }
+.res-name { color: #edf3f8 !important; }
+.eng-head { color: #edf3f8 !important; }
+.eng-sub { color: #9db8cc !important; }
+.risk-card { background: #080f1e !important; }
+.u-item { background: #060c18 !important; }
+.faq-item { background: #080f1e !important; }
+.b-row { background: #060c18 !important; }
+.arch-box { background: #080f1e !important; }
+.a-layer { background: #060c18 !important; }
+.scenario { background: #080f1e !important; }
+.phase-card { background: #060c18 !important; }
+.aud-card { background: #060c18 !important; }
+.top-links a { color: #9db8cc !important; }
+.nav-logo { color: #c8922a !important; }
+.ctp-note { color: #9db8cc !important; }
+.ctp-note strong { color: #edf3f8 !important; }
+
+@media(max-width:900px){
+  nav.top-nav{padding:0 1.25rem}
+  .top-links{display:none}
+  .risk-grid{grid-template-columns:1fr}
+  .urgency-bar{grid-template-columns:1fr 1fr}
+  .two-col{grid-template-columns:1fr}
+  .phase-grid{grid-template-columns:1fr}
+  .aud-grid{grid-template-columns:1fr 1fr}
+  .res-layout{grid-template-columns:1fr}
+  .section,.section-full .inner{padding-left:1.5rem;padding-right:1.5rem}
+  .hero-stats{gap:1.5rem}
+  footer{flex-direction:column;gap:1rem;text-align:center}
+  .crosslink{padding:0.9rem 1.5rem;flex-direction:column;gap:0.5rem;text-align:center}
+}
+@media(max-width:520px){
+  .aud-grid{grid-template-columns:1fr}
+  .urgency-bar{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- TOP NAV -->
+<nav class="top-nav">
+  <a href="#hero" class="nav-logo">Regulator AI Global</a>
+  <ul class="top-links">
+    <li><a href="#risk">Orbital Risk</a></li>
+    <li><a href="#airlock">Orbital Airlock</a></li>
+    <li><a href="#timeline">Mission Phases</a></li>
+    <li><a href="#regulatory">Regulatory</a></li>
+    <li><a href="#publications">Resources</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">Contact</a>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-img-bg"><img src="orbital_anim.svg" alt="Satellite docking with ISS â€” CTP Supervisory Containment" style="width:100%;height:100%;object-fit:cover;object-position:center;">
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-content">
+    <div class="hero-tag">Cognitive Transport Protocolâ„¢<span class="pulse"></span></div>
+    <h1 class="hero-headline">Deterministic Oversight for <em>Orbital AI Infrastructure</em></h1>
+    <p class="hero-sub">CTP enforces supervisory containment for AI operations in LEO â€” Starlink-class constellations, Orbital Data Centers, and mega-constellation environments. Every AI-generated command is evaluated before execution. Human override is preserved at scale. Immutable audit records from first orbit.</p>
+    <div class="hero-actions">
+      <a href="#airlock" class="btn-primary">Orbital Airlock</a>
+      <a href="#regulatory" class="btn-ghost">Regulatory Alignment</a>
+    </div>
+    <div class="hero-stats">
+      <div><span class="stat-val">2026</span><span class="stat-label">EU AI Act Deadline</span></div>
+      <div><span class="stat-val">>42,000</span><span class="stat-label">Starlink Fleet Scale</span></div>
+      <div><span class="stat-val">Quadratic</span><span class="stat-label">AI Interaction Risk</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ORBITAL BAND -->
+<div class="orbital-band">
+  <img src="orbital_anim.svg" alt="Orbital Asset Band" style="width:100%;height:100%;object-fit:cover;object-position:center;">
+  <div class="orbital-band-caption">// LEO AI Infrastructure â€” 2026</div>
+</div>
+
+<!-- TICKER -->
+<div class="ticker-wrap">
+  <div class="ticker-track">
+    <div class="t-item"><span class="t-dot"></span>Starlink-Class Constellations<span class="t-dot"></span>Orbital Data Centers<span class="t-dot"></span>AI Agent Populations in LEO<span class="t-dot"></span>Deterministic Oversight<span class="t-dot"></span>EU AI Act Article 14<span class="t-dot"></span>Cognitive Transport Protocolâ„¢<span class="t-dot"></span>Supervisory Containment<span class="t-dot"></span>Immutable Audit Records<span class="t-dot"></span>Human Override at Scale<span class="t-dot"></span>Orbital Airlock Architecture<span class="t-dot"></span></div>
+    <div class="t-item"><span class="t-dot"></span>Starlink-Class Constellations<span class="t-dot"></span>Orbital Data Centers<span class="t-dot"></span>AI Agent Populations in LEO<span class="t-dot"></span>Deterministic Oversight<span class="t-dot"></span>EU AI Act Article 14<span class="t-dot"></span>Cognitive Transport Protocolâ„¢<span class="t-dot"></span>Supervisory Containment<span class="t-dot"></span>Immutable Audit Records<span class="t-dot"></span>Human Override at Scale<span class="t-dot"></span>Orbital Airlock Architecture<span class="t-dot"></span></div>
+  </div>
+</div>
+
+<!-- SECTION 1: RISK -->
+<div class="section" id="risk">
+  <div class="s-label">Orbital Risk</div>
+  <h2>The Ghost Asset Problem</h2>
+  <p class="lead">AI in LEO introduces a new class of orbital risk: ghost assets â€” emergent interaction pathways that form when AI agents operate at constellation scale. These pathways are not declared in FCC filings or visible to ground control. They appear only when the constellation is operational â€” and they carry the same collision and interference risk as physical satellites.</p>
+  <div class="risk-grid">
+    <div class="risk-card">
+      <div class="rk-num">// Risk 1</div>
+      <div class="rk-title">Emergent Interaction Pathways</div>
+      <p class="rk-desc">In a mega-constellation, AI agents create interaction pathways that multiply quadratically with fleet size. A 42,000-satellite constellation can produce millions of dynamic pathways â€” each a potential cascade trigger. Without deterministic oversight, these pathways remain invisible to regulators and insurers until an anomaly occurs.</p>
+    </div>
+    <div class="risk-card">
+      <div class="rk-num">// Risk 2</div>
+      <div class="rk-title">AI Decision Opacity at Scale</div>
+      <p class="rk-desc">Individual AI decisions â€” maneuver adjustments, routing changes, deorbit triggers â€” appear safe in isolation. At constellation scale, they produce emergent effects that ground control cannot predict or replay. Without a supervisory layer, operators have no deterministic record of what their AI systems did â€” or why.</p>
+    </div>
+    <div class="risk-card">
+      <div class="rk-num">// Risk 3</div>
+      <div class="rk-title">Regulatory &amp; Insurance Gaps</div>
+      <p class="rk-desc">FCC filings disclose physical assets â€” not the AI interactions that govern them. Insurers price orbital risk based on declared assets â€” not the ghost pathways that emerge post-launch. As AI governance frameworks mature in 2026, operators without deterministic oversight records will face compliance barriers and premium increases.</p>
+    </div>
+    <div class="risk-card">
+      <div class="rk-num">// Risk 4</div>
+      <div class="rk-title">Orbital Data Center Cascade</div>
+      <p class="rk-desc">In an Orbital Data Center environment, AI agent populations reach millions. Interaction risk becomes exponential. A single unsupervised cascade can propagate across the data center â€” turning a computational asset into an orbital hazard. Deterministic oversight is the containment mechanism that prevents this.</p>
+    </div>
+  </div>
+</div>
+
+<hr class="div">
+
+<!-- SECTION 2: URGENCY -->
+<div class="section-full" id="urgency">
+  <div class="inner">
+    <div class="s-label">Why 2026?</div>
+    <div class="two-col">
+      <div>
+        <h2>Orbital AI Regulation Arrives</h2>
+        <p class="lead">2026 brings the first wave of binding AI governance frameworks to orbital operations. Constellation operators need deterministic oversight architecture in place now â€” before regulators require proof of supervised operation retroactively.</p>
+      </div>
+      <div></div>
+    </div>
+    <div class="urgency-bar">
+      <div class="u-item">
+        <span class="u-tag">EU AI Act</span>
+        <div class="u-head">High-Risk Orbital AI</div>
+        <p class="u-body">Satellite AI systems in safety-critical contexts â€” collision avoidance, traffic management â€” are high-risk under Article 6. Operators must demonstrate effective human oversight and traceable supervisory actions by February 2026.</p>
+      </div>
+      <div class="u-item">
+        <span class="u-tag">U.S. State Laws</span>
+        <div class="u-head">California &amp; Colorado</div>
+        <p class="u-body">California S.B. 53 (January 2026) and Colorado AI Act (June 2026) require risk assessments and safety frameworks for high-stakes AI. Orbital operators with U.S. ground segments must produce documented evidence of AI supervision.</p>
+      </div>
+      <div class="u-item">
+        <span class="u-tag">Space Traffic</span>
+        <div class="u-head">Multi-Operator LEO</div>
+        <p class="u-body">As LEO shells densify, AI interactions cross operator boundaries. Regulators will require proof that AI decisions respect shared orbital constraints. Without deterministic records, operators risk deconfliction disputes and license holds.</p>
+      </div>
+      <div class="u-item">
+        <span class="u-tag">Insurance Shift</span>
+        <div class="u-head">Premiums &amp; Coverage</div>
+        <p class="u-body">Space insurers are incorporating AI governance into 2026 renewals. Operators with deterministic oversight architecture will secure favorable terms. Those without will face increased premiums â€” or coverage exclusions for AI-related anomalies.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr class="div">
+
+<!-- VISUAL -->
+<div class="section" id="visual">
+  <div class="two-col">
+    <div>
+      <div class="s-label">Risk Visualization</div>
+      <h2>Ghost Assets in LEO</h2>
+      <p class="lead">Disclosed constellation assets form the visible layer. Emergent AI interactions create ghost pathways below â€” invisible to regulators until an anomaly reveals them. CTP's Orbital Airlock establishes the compliance boundary between the two.</p>
+    </div>
+    <div class="visual-img"><img src="orbital_anim.svg" alt="Satellite docking with ISS â€” CTP Supervisory Containment" style="width:100%;height:100%;object-fit:cover;object-position:center;">
+        <div class="visual-caption">Ghost Asset Risk â€” Disclosed constellation assets above. Undisclosed emergent interaction pathways below. CTP Orbital Airlock establishes the compliance boundary.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr class="div">
+
+<!-- SECTION 3: ORBITAL AIRLOCK -->
+<div class="section-full" id="airlock">
+  <div class="inner">
+    <div class="s-label">Control Architecture</div>
+    <div class="two-col">
+      <div>
+        <h2>The Orbital Airlock</h2>
+        <p class="lead">CTP introduces a deterministic supervisory layer into the constellation control plane. Before any AI-generated command reaches execution â€” maneuver, routing decision, deorbit trigger â€” it passes through the Orbital Airlock.</p>
+        <div class="benefit-list">
+          <div class="b-row"><div class="b-icon">âŠ•</div><div>
+            <div class="b-title">Every AI Decision Is Evaluated Before Execution</div>
+            <p class="b-desc">The Orbital Airlock sits between AI decision logic and command execution. Commands that exceed defined risk thresholds are held for human review. Commands that fall within safe parameters execute normally â€” with a deterministic audit record.</p>
+          </div></div>
+          <div class="b-row"><div class="b-icon">â–£</div><div>
+            <div class="b-title">Human Override Is Preserved at Scale</div>
+            <p class="b-desc">As constellation size grows, the Airlock preserves human intervention capability without requiring human review of every command. Supervisors retain the ability to halt, redirect, or override AI operations at any point â€” by architecture, not by configuration.</p>
+          </div></div>
+          <div class="b-row"><div class="b-icon">â—Ž</div><div>
+            <div class="b-title">Immutable Audit Records From First Orbit</div>
+            <p class="b-desc">Every command that passes through the Orbital Airlock is recorded in an immutable, hash-chained log. The record is available to regulators, insurers, and mission assurance teams as continuous documentation of supervised operation â€” from launch day forward.</p>
+          </div></div>
+          <div class="b-row"><div class="b-icon">â¬¡</div><div>
+            <div class="b-title">Scales With the Fleet â€” Not Against It</div>
+            <p class="b-desc">CTP's deterministic architecture holds as agent populations grow from thousands to millions. The oversight invariant does not degrade with scale â€” it is enforced by protocol, not by headcount.</p>
+          </div></div>
+        </div>
+        <div class="ctp-note">CTP is an <strong>architectural control mechanism</strong> protected by a U.S. provisional patent. The same protocol governs enterprise AI acquisitions at <strong><a href="https://www.regulator-ai.com" target="_blank" style="color:#c8922a;text-decoration:none">regulator-ai.com</a></strong>. Licensing: <strong><a href="mailto:zmichaelakins@gmail.com" style="color:#c8922a;text-decoration:none">&#122;&#109;&#105;&#99;&#104;&#97;&#101;&#108;&#97;&#107;&#105;&#110;&#115;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;</a></strong></div>
+      </div>
+      <div>
+        <div class="arch-box">
+          <div class="arch-eyebrow">// CTP â€” Orbital Airlock Architecture</div>
+          <div class="arch-layers">
+            <div class="a-layer hi"><span class="a-num">L5</span><span class="a-name">Constellation Risk Boundary</span><span class="a-tag tag-g">Orbital</span></div>
+            <div class="a-layer hi"><span class="a-num">L4</span><span class="a-name">Orbital Airlock Checkpoint</span><span class="a-tag tag-g">Gateway</span></div>
+            <div class="a-layer"><span class="a-num">L3</span><span class="a-name">Command Verification</span><span class="a-tag tag-t">Audit</span></div>
+            <div class="a-layer hi"><span class="a-num">L2</span><span class="a-name">Deterministic Oversight Logic</span><span class="a-tag tag-g">Active</span></div>
+            <div class="a-layer"><span class="a-num">L2a</span><span class="a-name">Ground Operator Override</span><span class="a-tag tag-t">Override</span></div>
+            <div class="a-layer"><span class="a-num">L1</span><span class="a-name">Constellation Interaction Map</span><span class="a-tag tag-d">Substrate</span></div>
+            <div class="a-layer"><span class="a-num">L0</span><span class="a-name">Immutable Mission Log</span><span class="a-tag tag-t">Deterministic</span></div>
+          </div>
+          <div class="arch-inv">Internal mechanisms proprietary â€” patent pending</div>
+        </div>
+        <div class="scenario" style="margin-top:1.5rem">
+          <div class="sc-eye">// Orbital Risk Scenario</div>
+          <p class="sc-body">A mega-constellation operator deploys <strong>AI-driven collision avoidance</strong> across a dense orbital shell. A coordinated avoidance sequence triggers a secondary risk cascade. Ground control has no record of the individual AI decisions that initiated the sequence. <strong>Regulatory review cannot determine whether the triggering command was within supervised parameters.</strong> The Orbital Airlock, active from launch, would have recorded every AI command with oversight status â€” providing the deterministic replay that regulators require.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr class="div">
+
+<!-- SECTION 4: MISSION PHASES -->
+<div class="section" id="timeline">
+  <div class="s-label">Mission Deployment</div>
+  <h2>CTP Across the Constellation Lifecycle</h2>
+  <p class="lead">CTP maps to the operational phases of a satellite constellation. Each phase carries a distinct AI risk profile. The Orbital Airlock addresses each in sequence.</p>
+  <div class="phase-grid">
+    <div class="phase-card">
+      <div class="phase-num" style="color:#c8922a">Phase 1 â€” Launch &amp; Commissioning</div>
+      <div class="phase-title">Observation Baseline</div>
+      <p class="phase-desc">Before AI systems begin autonomous operation, CTP establishes a behavioral baseline â€” documenting how each satellite's AI logic behaves before constellation-scale interactions begin. This baseline is the reference point for all subsequent oversight.</p>
+    </div>
+    <div class="phase-card">
+      <div class="phase-num" style="color:#7a5518">Phase 2 â€” Operational Scaling</div>
+      <div class="phase-title">Airlock Gateway</div>
+      <p class="phase-desc">As the constellation grows and AI interactions multiply, all AI-generated commands pass through the Orbital Airlock. Human override remains available at any scale. Every command is logged with deterministic oversight status â€” continuously available to regulators and insurers.</p>
+    </div>
+    <div class="phase-card">
+      <div class="phase-num" style="color:#4a6880">Phase 3 â€” Steady-State &amp; Growth</div>
+      <div class="phase-title">Sustained Supervisory Control</div>
+      <p class="phase-desc">At full operational scale â€” including Orbital Data Center integrations and multi-operator orbital environments â€” the deterministic oversight layer remains intact. The audit record accumulated across the constellation's operational life is available for regulatory review, insurance renewal, and mission assurance at any point.</p>
+    </div>
+  </div>
+</div>
+
+<hr class="div">
+
+<!-- SECTION 5: REGULATORY -->
+<div class="section" id="regulatory">
+  <div class="s-label">Regulatory Alignment</div>
+  <h2>Compliance by Architecture</h2>
+  <p class="lead">CTP aligns with the oversight requirements that orbital AI operators will face in 2026 and beyond. Compliance is embedded in the architecture â€” not added as a reporting layer after anomalies occur.</p>
+  <div class="risk-grid">
+    <div class="risk-card">
+      <div class="rk-num">EU AI Act â€” Article 14</div>
+      <div class="rk-title">Deterministic Oversight for High-Risk AI</div>
+      <p class="rk-desc">Satellite constellations operating AI in safety-critical contexts fall under EU AI Act high-risk classification. Article 14 requires effective human oversight, traceable supervisory actions, and intervention capability. CTP provides all three â€” by architecture, not by procedure.</p>
+    </div>
+    <div class="risk-card">
+      <div class="rk-num">U.S. State Frameworks</div>
+      <div class="rk-title">California S.B. 53 &amp; Colorado AI Act</div>
+      <p class="rk-desc">California's S.B. 53 (effective January 2026) and Colorado's AI Act (effective June 2026) mandate risk assessments and safety frameworks for high-stakes AI deployments. CTP's immutable audit records and intervention architecture provide the documented evidence these frameworks require.</p>
+    </div>
+    <div class="risk-card" style="grid-column:1/-1">
+      <div class="rk-num">Space Traffic Management</div>
+      <div class="rk-title">First-Mover Advantage in Orbital AI Governance</div>
+      <p class="rk-desc">There is currently no unified international framework for AI decisions in LEO. The regulatory environment that follows will require operators to demonstrate that their AI systems were supervised from the beginning â€” not retrofitted with oversight after anomalies made the gaps visible. CTP provides the deterministic record that positions operators ahead of that requirement. Operators who deploy CTP now hold an auditable record that competitors cannot reconstruct retroactively.</p>
+    </div>
+  </div>
+</div>
+
+<hr class="div">
+
+<!-- SECTION 6: AUDIENCE -->
+<div class="section" id="audience">
+  <div class="s-label">Who This Is For</div>
+  <h2>Orbital AI Stakeholders</h2>
+  <p class="lead">CTP addresses the oversight gap that exists across every category of stakeholder in the orbital AI ecosystem.</p>
+  <div class="aud-grid">
+    <div class="aud-card">
+      <div class="aud-type">Constellation Operators</div>
+      <div class="aud-head">Starlink-Class Fleet Operators</div>
+      <p class="aud-body">Operators running AI-enabled mega-constellations who need a deterministic oversight architecture that scales with the fleet â€” and produces the audit record that regulators, insurers, and mission assurance teams require.</p>
+    </div>
+    <div class="aud-card">
+      <div class="aud-type">Orbital Data Centers</div>
+      <div class="aud-head">AI Infrastructure Primes</div>
+      <p class="aud-body">Organizations building orbital AI data centers at scale â€” where AI agent populations will reach millions and interaction oversight becomes a structural requirement for regulatory approval and insurance coverage.</p>
+    </div>
+    <div class="aud-card">
+      <div class="aud-type">Regulators &amp; Insurers</div>
+      <div class="aud-head">Space Risk Underwriters</div>
+      <p class="aud-body">Space insurers and regulatory bodies that need a verifiable, deterministic record of AI supervision in orbital operations â€” and a framework for evaluating whether an operator's AI governance architecture meets emerging compliance standards.</p>
+    </div>
+    <div class="aud-card">
+      <div class="aud-type">M&amp;A &amp; Investment</div>
+      <div class="aud-head">Space-Native Acquirers</div>
+      <p class="aud-body">Investment firms and strategic acquirers evaluating orbital AI assets who need a diligence framework for AI interaction risk â€” and a post-close oversight architecture that protects deal value after systems are merged.</p>
+    </div>
+  </div>
+</div>
+
+<hr class="div">
+
+<!-- SECTION 7: PUBLICATIONS -->
+<div class="section-full" id="publications" style="background:#040810">
+  <div class="inner">
+    <div class="s-label">Public Materials</div>
+    <div class="res-layout">
+      <div>
+        <h2>Protocol Resources</h2>
+        <p style="font-size:0.87rem;color:#9db8cc;line-height:1.75;margin-bottom:1rem">Public documentation for the Cognitive Transport Protocolâ„¢. The same protocol governs both orbital AI infrastructure and enterprise AI acquisitions.</p>
+        <ul class="res-list">
+          <li><a href="https://github.com/zmichaelakins/ctp-spec" target="_blank"><span class="res-name">CTP Protocol Specification</span><span class="res-meta">github.com/zmichaelakins/ctp-spec â†—</span></a></li>
+          <li><a href="mailto:zmichaelakins@gmail.com"><span class="res-name">CTP v1.0 White Paper</span><span class="res-meta">Available on request</span></a></li>
+          <li><a href="mailto:zmichaelakins@gmail.com"><span class="res-name">Orbital Airlock Architecture Overview</span><span class="res-meta">Available on request</span></a></li>
+          <li><a href="mailto:zmichaelakins@gmail.com"><span class="res-name">EU AI Act Article 14 â€” CTP Orbital Alignment</span><span class="res-meta">Available on request</span></a></li>
+          <li><a href="https://www.regulator-ai.com" target="_blank"><span class="res-name">Enterprise M&amp;A Applications â€” regulator-ai.com</span><span class="res-meta">Sibling site â†—</span></a></li>
+        </ul>
+      </div>
+      <div>
+        <h2 style="font-size:1.3rem">Key Questions</h2>
+        <p style="font-size:0.81rem;color:#9db8cc;line-height:1.7;margin-bottom:1rem">Questions raised by constellation operators, insurers, and regulatory counsel.</p>
+        <div class="faq-list">
+          <div class="faq-item">
+            <p class="faq-q">What does the Orbital Airlock protect against?</p>
+            <p class="faq-a">The Orbital Airlock protects against the emergent interaction risk that forms when AI agents in a constellation begin operating at scale. Individual AI decisions that appear safe in isolation can produce cascade effects when executed simultaneously across thousands of nodes. CTP ensures every AI command is evaluated against deterministic oversight criteria before execution â€” and logged with a verifiable oversight record.</p>
+          </div>
+          <div class="faq-item">
+            <p class="faq-q">Does CTP satisfy EU AI Act Article 14 for satellite operations?</p>
+            <p class="faq-a">Article 14 requires effective human oversight, traceable supervisory actions, and preserved intervention capability. CTP provides all three by architecture. The Orbital Airlock enforces deterministic oversight at every AI decision point â€” independent of fleet size â€” and produces an immutable audit record from the first day of autonomous operation.</p>
+          </div>
+          <div class="faq-item">
+            <p class="faq-q">Can CTP scale to a million-agent Orbital Data Center?</p>
+            <p class="faq-a">CTP's deterministic oversight architecture is designed to hold at quadratic interaction scales. The oversight invariant is enforced by protocol â€” not by the number of human reviewers. As agent populations grow, the Airlock continues to evaluate, log, and gate AI commands without requiring proportional increases in ground control capacity.</p>
+          </div>
+          <div class="faq-item">
+            <p class="faq-q">Is the internal architecture disclosed publicly?</p>
+            <p class="faq-a">The description of the protocol specification is publicly available at github.com/zmichaelakins/ctp-spec. Internal mechanisms are proprietary and protected by a U.S. provisional patent. Licensing and partnership inquiries: <a href="mailto:zmichaelakins@gmail.com" style="color:#c8922a">&#122;&#109;&#105;&#99;&#104;&#97;&#101;&#108;&#97;&#107;&#105;&#110;&#115;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr class="div">
+
+<!-- CONTACT -->
+<div id="contact" class="engage-wrap">
+  <div class="s-label" style="justify-content:center">Contact</div>
+  <h2 class="eng-head">Orbital Program Inquiries</h2>
+  <p class="eng-sub">For orbital AI licensing, constellation briefings, or architecture documentation.</p>
+  <p class="eng-email" style="font-size:1.05rem;color:#edf3f8;margin-bottom:0.25rem">Zachary Michael Akins</p>
+  <p style="font-family:'DM Mono',monospace;font-size:0.72rem;letter-spacing:0.08em;color:#9db8cc;margin-bottom:0.25rem">CEO, Regulator AI Global, Inc.</p>
+  <p style="font-family:'DM Mono',monospace;font-size:0.78rem;letter-spacing:0.06em;margin-bottom:0.25rem"><a href="https://www.regulator-ai.com" target="_blank" style="color:#c8922a;text-decoration:none;border-bottom:1px solid #3a2506;padding-bottom:1px">www.regulator-ai.com</a></p>
+  <p class="eng-email"><a href="mailto:&#122;&#109;&#105;&#99;&#104;&#97;&#101;&#108;&#97;&#107;&#105;&#110;&#115;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;" style="color:#c8922a;text-decoration:none;border-bottom:1px solid #3a2506;padding-bottom:1px">&#122;&#109;&#105;&#99;&#104;&#97;&#101;&#108;&#97;&#107;&#105;&#110;&#115;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;</a></p>
+</div>
+
+<footer>
+  <div class="ft-left">
+    <div>Â© 2026 Regulator AI Global, Inc. â€” All rights reserved.</div>
+    <div>Cognitive Transport Protocolâ„¢ is a trademark of Regulator AI Global, Inc. U.S. provisional patent pending.</div>
+  </div>
+  <ul class="ft-links">
+    <li><a href="#hero">Home</a></li>
+    <li><a href="#risk">Orbital Risk</a></li>
+    <li><a href="#airlock">Orbital Airlock</a></li>
+    <li><a href="https://www.regulator-ai.com" target="_blank">regulator-ai.com</a></li>
+    <li><a href="mailto:zmichaelakins@gmail.com">&#122;&#109;&#105;&#99;&#104;&#97;&#101;&#108;&#97;&#107;&#105;&#110;&#115;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;</a></li>
+  </ul>
+</footer>
+</body>
+          </html>
