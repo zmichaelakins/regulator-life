@@ -4,671 +4,802 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Regulator AI Global — Deterministic Oversight for Orbital & Aerospace AI</title>
-<meta name="description" content="Deterministic human override for AI operating in LEO, deep space, and high-reliability aerospace environments. 22 U.S. patents filed. 36 documented embodiments. Architecture-level EU AI Act compliance.">
+<meta name="description" content="Deterministic human override for AI operating in LEO, deep space, and high-reliability aerospace environments. 22 U.S. provisionals filed. Over 36 documented embodiments. Details available under NDA.">
 <meta property="og:title" content="Regulator AI Global — Deterministic Oversight for Orbital & Aerospace AI">
-<meta property="og:description" content="AI systems in orbit require oversight that functions without ground-in-the-loop latency. Regulator AI delivers deterministic human override as a structural property — enforced at the platform level, documented from first operation.">
+<meta property="og:description" content="AI systems in orbit require oversight that functions without ground-in-the-loop latency. Regulator AI has built the solution. Details available under NDA.">
 <meta property="og:url" content="https://regulator.life">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Regulator AI Global — Deterministic Oversight for Orbital & Aerospace AI">
-<meta name="twitter:description" content="Deterministic human override for orbital AI. 22 U.S. patents. 36 embodiments. LEO, deep space, aerospace, defense.">
+<meta name="twitter:description" content="Deterministic human override for orbital AI. 22 U.S. provisionals. 36+ embodiments. Under NDA.">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23c9973a'/><text x='50%' y='50%' dominant-baseline='central' text-anchor='middle' font-family='Georgia,serif' font-weight='bold' font-size='20' fill='%2307090f'>R</text></svg>">
-<link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23c9973a'/><text x='50%' y='50%' dominant-baseline='central' text-anchor='middle' font-family='Georgia,serif' font-weight='bold' font-size='20' fill='%2307090f'>R</text></svg>">
-<link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
-<script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@300;400;500&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
 <style>
-:root {
-  --bg: #07090f;
-  --surface: #0d1119;
-  --surface2: #131923;
-  --border: #1c2535;
-  --border2: #253045;
-  --text: #e8ecf2;
-  --text-secondary: #7a8fa8;
-  --text-muted: #3d5068;
-  --accent: #c9973a;
-  --accent-dim: rgba(201,151,58,0.12);
-  --accent-border: rgba(201,151,58,0.3);
-  --teal: #2bbfad;
-  --teal-dim: rgba(43,191,173,0.1);
-  --red: #e05555;
-  --blue: #4a8fb5;
-}
+  /* ── Tokens ─────────────────────────────────────────── */
+  :root {
+    --navy:      #0a0e1a;
+    --navy-mid:  #0f1526;
+    --navy-card: #131929;
+    --gold:      #c9973a;
+    --gold-dim:  rgba(201,151,58,0.18);
+    --gold-rule: rgba(201,151,58,0.35);
+    --offwhite:  #f5f0e8;
+    --body-dim:  rgba(245,240,232,0.62);
+    --body-faint:rgba(245,240,232,0.32);
+    --rule:      rgba(245,240,232,0.08);
+    --mono:      'IBM Plex Mono', monospace;
+    --sans:      'IBM Plex Sans', sans-serif;
+    --serif:     'Libre Baskerville', Georgia, serif;
+  }
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-body {
-  background: var(--bg);
-  color: var(--text);
-  font-family: 'IBM Plex Sans', sans-serif;
-  font-size: 16px;
-  line-height: 1.65;
-  overflow-x: hidden;
-}
-::-webkit-scrollbar { width: 4px; }
-::-webkit-scrollbar-track { background: var(--bg); }
-::-webkit-scrollbar-thumb { background: var(--border2); }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-/* ── NAV ── */
-nav {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 0 48px; height: 64px;
-  background: rgba(7,9,15,0.92);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--border);
-}
-.nav-logo {
-  font-family: 'IBM Plex Mono', monospace; font-size: 13px; font-weight: 500;
-  color: var(--accent); letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none;
-}
-.nav-links { display: flex; gap: 36px; list-style: none; }
-.nav-links a {
-  font-family: 'IBM Plex Mono', monospace; font-size: 11px;
-  color: var(--text-secondary); text-decoration: none;
-  letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.2s;
-}
-.nav-links a:hover { color: var(--text); }
-.nav-cta {
-  font-family: 'IBM Plex Mono', monospace; font-size: 11px;
-  letter-spacing: 0.08em; text-transform: uppercase;
-  color: var(--accent); text-decoration: none;
-  border: 1px solid var(--accent-border); padding: 8px 18px; transition: all 0.2s;
-}
-.nav-cta:hover { background: var(--accent-dim); }
+  html { scroll-behavior: smooth; }
 
-/* ── HERO ── */
-.hero {
-  min-height: 100vh; display: flex; flex-direction: column;
-  justify-content: center; padding: 120px 48px 80px;
-  position: relative; overflow: hidden;
-}
-.hero::before {
-  content: ''; position: absolute; top: 0; right: 0;
-  width: 55%; height: 100%;
-  background:
-    repeating-linear-gradient(0deg, transparent, transparent 59px, var(--border) 59px, var(--border) 60px),
-    repeating-linear-gradient(90deg, transparent, transparent 59px, var(--border) 59px, var(--border) 60px);
-  opacity: 0.2; pointer-events: none;
-}
-.hero::after {
-  content: ''; position: absolute; top: -150px; right: -80px;
-  width: 700px; height: 700px;
-  background: radial-gradient(circle, rgba(74,143,181,0.07) 0%, transparent 65%);
-  pointer-events: none;
-}
+  body {
+    background: var(--navy);
+    color: var(--offwhite);
+    font-family: var(--sans);
+    font-weight: 300;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
 
-.ip-strip {
-  display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 36px;
-}
-.ip-badge {
-  font-family: 'IBM Plex Mono', monospace; font-size: 10px;
-  letter-spacing: 0.15em; text-transform: uppercase;
-  padding: 5px 12px; border: 1px solid var(--border2);
-  color: var(--text-secondary);
-}
-.ip-badge.gold { border-color: var(--accent-border); color: var(--accent); }
-.ip-badge.teal { border-color: rgba(43,191,173,0.3); color: var(--teal); }
+  /* ── Utility ─────────────────────────────────────────── */
+  .gold-rule { height: 1px; background: var(--gold-rule); margin: 0; }
+  .section-label {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 1.2rem;
+  }
+  .section-heading {
+    font-family: var(--serif);
+    font-size: clamp(1.6rem, 3vw, 2.4rem);
+    font-weight: 400;
+    line-height: 1.25;
+    color: var(--offwhite);
+  }
+  .section-heading em { font-style: italic; color: var(--body-dim); }
+  .section-body {
+    font-size: 1rem;
+    color: var(--body-dim);
+    max-width: 58ch;
+    line-height: 1.8;
+  }
 
-.hero-kicker {
-  font-family: 'IBM Plex Mono', monospace; font-size: 11px;
-  letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent);
-  margin-bottom: 28px; display: flex; align-items: center; gap: 12px;
-}
-.hero-kicker::before { content: ''; width: 32px; height: 1px; background: var(--accent); }
+  /* ── Nav ─────────────────────────────────────────────── */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.1rem 4rem;
+    background: rgba(10,14,26,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--rule);
+  }
+  .nav-logo {
+    font-family: var(--mono);
+    font-size: 0.82rem;
+    letter-spacing: 0.06em;
+    color: var(--offwhite);
+    text-decoration: none;
+  }
+  .nav-logo span { color: var(--gold); }
+  .nav-links {
+    display: flex;
+    gap: 2.2rem;
+    list-style: none;
+  }
+  .nav-links a {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    color: var(--body-faint);
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--offwhite); }
+  .nav-cta {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    color: var(--gold);
+    text-decoration: none;
+    border: 1px solid var(--gold-rule);
+    padding: 0.45rem 1.1rem;
+    text-transform: uppercase;
+    transition: background 0.2s, color 0.2s;
+  }
+  .nav-cta:hover { background: var(--gold-dim); }
 
-.hero h1 {
-  font-family: 'Libre Baskerville', serif;
-  font-size: clamp(38px, 5vw, 70px); font-weight: 700;
-  line-height: 1.1; max-width: 860px; margin-bottom: 32px; letter-spacing: -0.02em;
-}
-.hero h1 em { font-style: italic; color: var(--accent); }
+  /* ── Hero ────────────────────────────────────────────── */
+  .hero {
+    min-height: 92vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 7rem 4rem 5rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 55% at 70% 40%, rgba(201,151,58,0.06) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 40% at 20% 70%, rgba(201,151,58,0.04) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  /* subtle star-field texture */
+  .hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(1px 1px at 15% 22%, rgba(201,151,58,0.3) 0%, transparent 100%),
+      radial-gradient(1px 1px at 78% 14%, rgba(245,240,232,0.15) 0%, transparent 100%),
+      radial-gradient(1px 1px at 45% 68%, rgba(201,151,58,0.2) 0%, transparent 100%),
+      radial-gradient(1px 1px at 88% 55%, rgba(245,240,232,0.1) 0%, transparent 100%),
+      radial-gradient(1px 1px at 32% 88%, rgba(245,240,232,0.12) 0%, transparent 100%),
+      radial-gradient(1px 1px at 62% 35%, rgba(201,151,58,0.15) 0%, transparent 100%),
+      radial-gradient(1px 1px at 8%  75%, rgba(245,240,232,0.08) 0%, transparent 100%),
+      radial-gradient(1px 1px at 95% 82%, rgba(245,240,232,0.1)  0%, transparent 100%);
+    pointer-events: none;
+  }
+  .hero-eyebrow {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 1.8rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  .hero-eyebrow::before {
+    content: '';
+    display: inline-block;
+    width: 2.5rem;
+    height: 1px;
+    background: var(--gold);
+    opacity: 0.5;
+  }
+  .hero-headline {
+    font-family: var(--serif);
+    font-size: clamp(2.2rem, 5.5vw, 4.2rem);
+    font-weight: 400;
+    line-height: 1.15;
+    color: var(--offwhite);
+    max-width: 18ch;
+    margin-bottom: 2rem;
+  }
+  .hero-headline em {
+    font-style: italic;
+    color: var(--body-dim);
+    display: block;
+  }
+  .hero-sub {
+    font-size: 1.05rem;
+    color: var(--body-dim);
+    max-width: 56ch;
+    line-height: 1.8;
+    margin-bottom: 3rem;
+  }
+  .hero-cta-row {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+  .btn-primary {
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--navy);
+    background: var(--gold);
+    padding: 0.85rem 2rem;
+    text-decoration: none;
+    transition: opacity 0.2s;
+    display: inline-block;
+  }
+  .btn-primary:hover { opacity: 0.88; }
+  .btn-ghost {
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--body-dim);
+    text-decoration: none;
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 2px;
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .btn-ghost:hover { color: var(--offwhite); border-color: var(--gold-rule); }
+  .hero-note {
+    margin-top: 3.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.1em;
+    color: var(--body-faint);
+    text-transform: uppercase;
+  }
+  .hero-note::before {
+    content: '⬡';
+    color: var(--gold);
+    font-size: 0.65rem;
+  }
 
-.hero-sub {
-  font-size: 17px; color: var(--text-secondary); max-width: 580px;
-  margin-bottom: 20px; font-weight: 300; line-height: 1.75;
-}
+  /* ── Stats Bar ────────────────────────────────────────── */
+  .stats-bar {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+  }
+  .stat-cell {
+    padding: 2rem 2.5rem;
+    border-right: 1px solid var(--rule);
+  }
+  .stat-cell:last-child { border-right: none; }
+  .stat-val {
+    font-family: var(--mono);
+    font-size: 1.7rem;
+    font-weight: 600;
+    color: var(--gold);
+    letter-spacing: -0.02em;
+    line-height: 1;
+    margin-bottom: 0.4rem;
+  }
+  .stat-label {
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--body-faint);
+  }
 
-.embodiment-callout {
-  display: inline-flex; align-items: center; gap: 16px;
-  border: 1px solid var(--accent-border); background: var(--accent-dim);
-  padding: 14px 24px; margin-bottom: 44px; max-width: 640px;
-}
-.ec-num {
-  font-family: 'IBM Plex Mono', monospace; font-size: 28px; font-weight: 500;
-  color: var(--accent); line-height: 1; white-space: nowrap;
-}
-.ec-text { font-size: 13px; color: var(--text-secondary); line-height: 1.5; }
-.ec-text strong { color: var(--text); }
+  /* ── Section wrapper ──────────────────────────────────── */
+  .section {
+    padding: 7rem 4rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
 
-.hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
-.btn-primary {
-  background: var(--accent); color: #07090f; padding: 14px 32px;
-  font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 500;
-  letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none;
-  display: inline-block; transition: all 0.2s;
-}
-.btn-primary:hover { background: #e0a93e; }
-.btn-secondary {
-  border: 1px solid var(--border2); color: var(--text-secondary);
-  padding: 14px 32px; font-family: 'IBM Plex Mono', monospace; font-size: 12px;
-  letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none;
-  display: inline-block; transition: all 0.2s;
-}
-.btn-secondary:hover { border-color: var(--text-secondary); color: var(--text); }
+  /* ── Risk section ─────────────────────────────────────── */
+  #risk .section-heading { margin-bottom: 1rem; }
+  #risk .risk-intro { margin-bottom: 4rem; }
 
-.hero-stats {
-  display: flex; gap: 48px; margin-top: 64px; padding-top: 36px;
-  border-top: 1px solid var(--border);
-}
-.stat-num {
-  font-family: 'IBM Plex Mono', monospace; font-size: 28px; font-weight: 500;
-  color: var(--text); line-height: 1; margin-bottom: 6px;
-}
-.stat-label {
-  font-family: 'IBM Plex Mono', monospace; font-size: 11px;
-  color: var(--text-muted); letter-spacing: 0.08em; text-transform: uppercase;
-}
+  .risk-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    border: 1px solid var(--rule);
+  }
+  .risk-card {
+    padding: 2.4rem 2rem;
+    border-right: 1px solid var(--rule);
+    position: relative;
+  }
+  .risk-card:last-child { border-right: none; }
+  .risk-card::before {
+    content: attr(data-num);
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.14em;
+    color: var(--gold);
+    display: block;
+    margin-bottom: 1.2rem;
+  }
+  .risk-card h3 {
+    font-family: var(--serif);
+    font-size: 1.05rem;
+    font-weight: 400;
+    color: var(--offwhite);
+    margin-bottom: 0.9rem;
+    line-height: 1.35;
+  }
+  .risk-card p {
+    font-size: 0.9rem;
+    color: var(--body-dim);
+    line-height: 1.75;
+  }
 
-/* ── SECTIONS ── */
-section { padding: 100px 48px; position: relative; }
-.section-label {
-  font-family: 'IBM Plex Mono', monospace; font-size: 10px;
-  letter-spacing: 0.25em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 16px;
-}
-.section-title {
-  font-family: 'Libre Baskerville', serif;
-  font-size: clamp(28px, 3.5vw, 44px); font-weight: 700;
-  line-height: 1.2; letter-spacing: -0.02em; max-width: 680px; margin-bottom: 20px;
-}
-.section-title em { font-style: italic; color: var(--accent); }
-.section-intro {
-  font-size: 16px; color: var(--text-secondary);
-  max-width: 600px; margin-bottom: 64px; font-weight: 300; line-height: 1.75;
-}
+  /* ── Solution section ─────────────────────────────────── */
+  #solution {
+    background: var(--navy-mid);
+    padding: 7rem 0;
+  }
+  #solution .inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 4rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: start;
+  }
+  #solution .sol-left .section-heading { margin-bottom: 1.5rem; }
+  #solution .sol-left .section-body { margin-bottom: 2rem; }
+  #solution .sol-left .section-body + .section-body { margin-top: 1rem; }
 
-/* ── IP ARCHITECTURE ── */
-#ip { background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-.ip-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); }
-.ip-card { background: var(--surface); padding: 36px 32px; }
-.ip-card-num {
-  font-family: 'IBM Plex Mono', monospace; font-size: 11px;
-  color: var(--text-muted); letter-spacing: 0.1em; margin-bottom: 20px;
-}
-.ip-card h3 { font-family: 'Libre Baskerville', serif; font-size: 19px; font-weight: 700; margin-bottom: 12px; line-height: 1.3; }
-.ip-card p { font-size: 13px; color: var(--text-secondary); line-height: 1.7; }
-.ip-highlight {
-  background: var(--bg); border: 1px solid var(--border); grid-column: 1 / -1;
-  padding: 28px 32px; display: flex; align-items: center; gap: 48px; flex-wrap: wrap;
-}
-.ip-hl-item { display: flex; align-items: baseline; gap: 12px; }
-.ip-hl-num {
-  font-family: 'IBM Plex Mono', monospace; font-size: 36px; font-weight: 500;
-  color: var(--accent); line-height: 1;
-}
-.ip-hl-label { font-size: 14px; color: var(--text-secondary); max-width: 200px; line-height: 1.4; }
-.ip-divider { width: 1px; height: 48px; background: var(--border2); }
+  .sol-point {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.8rem;
+    align-items: flex-start;
+  }
+  .sol-point-icon {
+    font-family: var(--mono);
+    color: var(--gold);
+    font-size: 0.85rem;
+    margin-top: 0.15rem;
+    flex-shrink: 0;
+  }
+  .sol-point p {
+    font-size: 0.94rem;
+    color: var(--body-dim);
+    line-height: 1.75;
+  }
+  .sol-point p strong { color: var(--offwhite); font-weight: 500; }
 
-/* ── EMBODIMENTS ── */
-#embodiments { background: var(--bg); }
-.embodiments-intro-block {
-  border: 1px solid var(--border2); background: var(--surface);
-  padding: 28px 32px; margin-bottom: 48px; max-width: 800px;
-}
-.eib-label {
-  font-family: 'IBM Plex Mono', monospace; font-size: 10px;
-  letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 10px;
-}
-.eib-text { font-size: 15px; color: var(--text-secondary); line-height: 1.7; }
-.eib-text strong { color: var(--text); }
-.embodiments-grid {
-  display: grid; grid-template-columns: repeat(4, 1fr);
-  gap: 1px; background: var(--border); border: 1px solid var(--border);
-}
-.emb-card { background: var(--bg); padding: 28px 24px; transition: background 0.2s; }
-.emb-card:hover { background: var(--surface); }
-.emb-sector {
-  font-family: 'IBM Plex Mono', monospace; font-size: 10px;
-  letter-spacing: 0.15em; text-transform: uppercase; color: var(--blue); margin-bottom: 14px;
-}
-.emb-title { font-family: 'Libre Baskerville', serif; font-size: 16px; font-weight: 700; margin-bottom: 10px; line-height: 1.3; }
-.emb-problem { font-size: 12px; color: var(--red); margin-bottom: 8px; font-family: 'IBM Plex Mono', monospace; line-height: 1.5; }
-.emb-problem::before { content: '↳ '; }
-.emb-solution { font-size: 12px; color: var(--teal); margin-bottom: 12px; font-family: 'IBM Plex Mono', monospace; }
-.emb-solution::before { content: '✓ '; }
-.emb-body { font-size: 12px; color: var(--text-secondary); line-height: 1.65; }
+  .embodiment-callout {
+    margin-top: 2.5rem;
+    border: 1px solid var(--gold-rule);
+    padding: 1.6rem 1.8rem;
+    background: var(--gold-dim);
+  }
+  .embodiment-callout p {
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.06em;
+    color: var(--gold);
+    line-height: 1.6;
+  }
+  .embodiment-callout p span { color: var(--offwhite); }
 
-/* ── MODULAR ARCHITECTURE ── */
-#modular { background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-.modular-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
-.module-list { display: flex; flex-direction: column; gap: 1px; background: var(--border); }
-.module-row {
-  background: var(--surface); padding: 22px 28px;
-  display: flex; gap: 20px; align-items: flex-start; transition: background 0.2s;
-}
-.module-row:hover { background: var(--surface2); }
-.module-tag {
-  font-family: 'IBM Plex Mono', monospace; font-size: 10px;
-  letter-spacing: 0.12em; text-transform: uppercase;
-  color: var(--accent); background: var(--accent-dim);
-  border: 1px solid var(--accent-border); padding: 3px 8px;
-  white-space: nowrap; flex-shrink: 0; margin-top: 2px;
-}
-.module-content h4 { font-size: 14px; font-weight: 600; margin-bottom: 4px; }
-.module-content p { font-size: 13px; color: var(--text-secondary); line-height: 1.55; }
-.modular-right h3 { font-family: 'Libre Baskerville', serif; font-size: 22px; font-weight: 700; margin-bottom: 16px; }
-.modular-right p { font-size: 14px; color: var(--text-secondary); line-height: 1.75; margin-bottom: 20px; font-weight: 300; }
-.modular-note {
-  border-left: 2px solid var(--accent); padding: 14px 18px;
-  background: var(--bg); margin-top: 28px;
-  font-family: 'IBM Plex Mono', monospace; font-size: 12px;
-  color: var(--text-secondary); line-height: 1.6;
-}
+  /* ── Environments ─────────────────────────────────────── */
+  .env-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin-top: 3.5rem;
+  }
+  .env-card {
+    background: var(--navy-card);
+    border: 1px solid var(--rule);
+    padding: 2rem 2rem;
+    transition: border-color 0.2s;
+  }
+  .env-card:hover { border-color: var(--gold-rule); }
+  .env-icon {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    display: block;
+  }
+  .env-card h3 {
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.7rem;
+  }
+  .env-card p {
+    font-size: 0.88rem;
+    color: var(--body-dim);
+    line-height: 1.7;
+  }
+  .env-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-top: 1rem;
+  }
+  .env-tag {
+    font-family: var(--mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--body-faint);
+    border: 1px solid var(--rule);
+    padding: 0.2rem 0.5rem;
+  }
 
-/* ── ENVIRONMENTS ── */
-#environments { background: var(--bg); }
-.env-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--border); }
-.env-card { background: var(--bg); padding: 40px 36px; position: relative; }
-.env-card::before {
-  content: attr(data-num); position: absolute; top: 32px; right: 32px;
-  font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--text-muted); letter-spacing: 0.1em;
-}
-.env-icon { font-size: 20px; margin-bottom: 18px; display: block; }
-.env-card h3 { font-family: 'Libre Baskerville', serif; font-size: 20px; font-weight: 700; margin-bottom: 12px; line-height: 1.3; }
-.env-card p { font-size: 14px; color: var(--text-secondary); line-height: 1.7; }
-.env-tags { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 18px; }
-.env-tag {
-  font-family: 'IBM Plex Mono', monospace; font-size: 10px;
-  letter-spacing: 0.1em; text-transform: uppercase;
-  color: var(--text-muted); border: 1px solid var(--border2); padding: 3px 8px;
-}
+  /* ── Regulatory ───────────────────────────────────────── */
+  #regulatory {
+    background: var(--navy-mid);
+    padding: 7rem 0;
+  }
+  #regulatory .inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 4rem;
+  }
+  .reg-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    border: 1px solid var(--rule);
+    margin-top: 3.5rem;
+  }
+  .reg-card {
+    padding: 2rem 1.8rem;
+    border-right: 1px solid var(--rule);
+  }
+  .reg-card:last-child { border-right: none; }
+  .reg-card h3 {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.8rem;
+  }
+  .reg-badge {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gold);
+    border: 1px solid var(--gold-rule);
+    padding: 0.2rem 0.5rem;
+    margin-bottom: 0.9rem;
+  }
+  .reg-card p {
+    font-size: 0.85rem;
+    color: var(--body-dim);
+    line-height: 1.7;
+  }
 
-/* ── REGULATORY ── */
-#regulatory { background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-.reg-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); margin-top: 64px; }
-.reg-card { background: var(--surface); padding: 36px 32px; }
-.reg-body { border: 1px solid var(--border); background: var(--surface2); padding: 24px 28px; }
-.reg-standard { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.12em; color: var(--accent); margin-bottom: 10px; }
-.reg-desc { font-size: 14px; color: var(--text-secondary); line-height: 1.65; margin-bottom: 16px; }
-.reg-status {
-  font-family: 'IBM Plex Mono', monospace; font-size: 10px;
-  letter-spacing: 0.12em; text-transform: uppercase; color: var(--teal);
-  background: var(--teal-dim); border: 1px solid rgba(43,191,173,0.2);
-  padding: 4px 10px; display: inline-block;
-}
+  /* ── NDA Inquiry ──────────────────────────────────────── */
+  .nda-section {
+    padding: 7rem 4rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: start;
+  }
+  .nda-left .section-heading { margin-bottom: 1.5rem; }
+  .nda-left .section-body { margin-bottom: 1rem; }
 
-/* ── CONTACT ── */
-#contact { background: var(--bg); border-top: 1px solid var(--border); }
-.contact-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; margin-top: 64px; }
-.contact-left h2 { font-family: 'Libre Baskerville', serif; font-size: 34px; font-weight: 700; margin-bottom: 20px; letter-spacing: -0.02em; }
-.contact-left p { font-size: 15px; color: var(--text-secondary); line-height: 1.75; margin-bottom: 36px; font-weight: 300; }
-.contact-detail { display: flex; flex-direction: column; gap: 12px; }
-.cd-row { display: flex; gap: 16px; align-items: baseline; }
-.cd-label {
-  font-family: 'IBM Plex Mono', monospace; font-size: 10px;
-  letter-spacing: 0.15em; text-transform: uppercase;
-  color: var(--text-muted); width: 80px; flex-shrink: 0;
-}
-.cd-value { font-size: 14px; color: var(--text); }
-.cd-value a { color: var(--accent); text-decoration: none; }
-.cd-value a:hover { text-decoration: underline; }
-.contact-right { display: flex; flex-direction: column; gap: 16px; }
-.inquiry-card { padding: 24px 28px; border: 1px solid var(--border); background: var(--surface); transition: border-color 0.2s; }
-.inquiry-card:hover { border-color: var(--border2); }
-.ic-type { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; }
-.ic-title { font-size: 15px; font-weight: 600; margin-bottom: 6px; }
-.ic-desc { font-size: 13px; color: var(--text-secondary); }
+  /* Form */
+  .form-label {
+    display: block;
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--body-faint);
+    margin-bottom: 0.4rem;
+    margin-top: 1.4rem;
+  }
+  .form-input,
+  .form-select,
+  .form-textarea {
+    width: 100%;
+    background: var(--navy-card);
+    border: 1px solid var(--rule);
+    color: var(--offwhite);
+    font-family: var(--sans);
+    font-size: 0.92rem;
+    font-weight: 300;
+    padding: 0.75rem 1rem;
+    outline: none;
+    transition: border-color 0.2s;
+    -webkit-appearance: none;
+  }
+  .form-input::placeholder,
+  .form-textarea::placeholder { color: var(--body-faint); }
+  .form-input:focus,
+  .form-select:focus,
+  .form-textarea:focus { border-color: var(--gold-rule); }
+  .form-select {
+    cursor: pointer;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23c9973a' opacity='.5'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    padding-right: 2.5rem;
+  }
+  .form-select option { background: var(--navy-mid); }
+  .form-textarea { resize: vertical; min-height: 90px; }
+  .form-submit {
+    width: 100%;
+    margin-top: 1.8rem;
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--navy);
+    background: var(--gold);
+    border: none;
+    padding: 1rem;
+    cursor: pointer;
+    transition: opacity 0.2s;
+  }
+  .form-submit:hover { opacity: 0.88; }
+  .form-note {
+    margin-top: 1.2rem;
+    font-family: var(--mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.08em;
+    color: var(--body-faint);
+    line-height: 1.7;
+  }
 
-/* ── FOOTER ── */
-footer {
-  background: var(--bg); border-top: 1px solid var(--border);
-  padding: 32px 48px; display: flex; justify-content: space-between;
-  align-items: center; flex-wrap: wrap; gap: 16px;
-}
-.footer-left { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--text-muted); letter-spacing: 0.05em; }
-.footer-right { display: flex; gap: 24px; }
-.footer-right a {
-  font-family: 'IBM Plex Mono', monospace; font-size: 10px;
-  letter-spacing: 0.12em; text-transform: uppercase;
-  color: var(--text-muted); text-decoration: none; transition: color 0.2s;
-}
-.footer-right a:hover { color: var(--text-secondary); }
+  /* ── Footer ───────────────────────────────────────────── */
+  footer {
+    padding: 2.5rem 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid var(--rule);
+  }
+  .footer-logo {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    color: var(--body-faint);
+  }
+  .footer-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+  .footer-links a {
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--body-faint);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .footer-links a:hover { color: var(--gold); }
+  .footer-right {
+    font-family: var(--mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.06em;
+    color: rgba(245,240,232,0.18);
+    text-align: right;
+    line-height: 1.8;
+  }
 
-/* ── ANIMATION ── */
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(24px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-.ip-strip    { animation: fadeUp 0.6s ease both; }
-.hero-kicker { animation: fadeUp 0.6s 0.05s ease both; }
-.hero h1     { animation: fadeUp 0.7s 0.12s ease both; }
-.hero-sub    { animation: fadeUp 0.7s 0.2s ease both; }
-.embodiment-callout { animation: fadeUp 0.7s 0.28s ease both; }
-.hero-actions { animation: fadeUp 0.7s 0.34s ease both; }
-.hero-stats  { animation: fadeUp 0.7s 0.44s ease both; }
+  /* ── Scroll reveal ────────────────────────────────────── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: none; }
+  }
+  .reveal {
+    animation: fadeUp 0.7s ease both;
+  }
 
-/* ── RESPONSIVE ── */
-@media (max-width: 1100px) {
-  .embodiments-grid { grid-template-columns: repeat(2, 1fr); }
-  .ip-grid { grid-template-columns: 1fr 1fr; }
-  .ip-highlight { grid-column: 1 / -1; }
-  .modular-layout { grid-template-columns: 1fr; gap: 48px; }
-  .reg-grid { grid-template-columns: 1fr; }
-}
-@media (max-width: 800px) {
-  nav { padding: 0 24px; }
-  .nav-links { display: none; }
-  section { padding: 72px 24px; }
-  .hero { padding: 100px 24px 60px; }
-  .hero-stats { gap: 28px; flex-wrap: wrap; }
-  .env-grid { grid-template-columns: 1fr; }
-  .embodiments-grid { grid-template-columns: 1fr; }
-  .contact-layout { grid-template-columns: 1fr; gap: 40px; }
-  footer { padding: 24px; }
-}
+  /* ── Responsive ───────────────────────────────────────── */
+  @media (max-width: 960px) {
+    nav { padding: 1rem 2rem; }
+    .nav-links { display: none; }
+    .hero { padding: 5rem 2rem 4rem; }
+    .stats-bar { grid-template-columns: repeat(2, 1fr); }
+    .stat-cell:nth-child(2) { border-right: none; }
+    .stat-cell:nth-child(3) { border-right: 1px solid var(--rule); }
+    .section { padding: 5rem 2rem; }
+    .risk-grid { grid-template-columns: 1fr; }
+    .risk-card { border-right: none; border-bottom: 1px solid var(--rule); }
+    .risk-card:last-child { border-bottom: none; }
+    #solution .inner { grid-template-columns: 1fr; gap: 3rem; padding: 0 2rem; }
+    .env-grid { grid-template-columns: 1fr; }
+    #regulatory .inner { padding: 0 2rem; }
+    .reg-grid { grid-template-columns: repeat(2, 1fr); }
+    .reg-card:nth-child(2) { border-right: none; }
+    .reg-card:nth-child(3) { border-right: 1px solid var(--rule); }
+    .nda-section { grid-template-columns: 1fr; gap: 3.5rem; padding: 5rem 2rem; }
+    footer { flex-direction: column; gap: 1.5rem; padding: 2rem; text-align: center; }
+    .footer-right { text-align: center; }
+  }
 </style>
 </head>
+
 <body>
 
-<!-- NAV -->
+<!-- ── Nav ──────────────────────────────────────────────── -->
 <nav>
-  <a href="#" class="nav-logo">Regulator AI Global <span style="opacity:0.45; font-weight:400;">· Orbital</span></a>
+  <a href="#" class="nav-logo">Regulator AI Global <span>· Orbital</span></a>
   <ul class="nav-links">
-    <li><a href="#ip">IP Portfolio</a></li>
-    <li><a href="#embodiments">Embodiments</a></li>
-    <li><a href="#modular">Architecture</a></li>
+    <li><a href="#risk">The Risk</a></li>
+    <li><a href="#solution">The Solution</a></li>
     <li><a href="#environments">Environments</a></li>
     <li><a href="#regulatory">Regulatory</a></li>
-    <li><a href="#contact">Contact</a></li>
+    <li><a href="#nda-inquiry">Contact</a></li>
   </ul>
-  <a href="#contact" class="nav-cta">Inquire</a>
+  <a href="#nda-inquiry" class="nav-cta">Request NDA Package</a>
 </nav>
 
-<!-- HERO -->
-<section class="hero" id="hero">
-  <div class="ip-strip">
-    <span class="ip-badge gold">22 of 22 Provisionals Filed</span>
-    <span class="ip-badge gold">36 Documented Embodiments</span>
-    <span class="ip-badge teal">Assigned to Regulator AI Global, Inc.</span>
-    <span class="ip-badge teal">Modular · Platform-Agnostic</span>
-    <span class="ip-badge">March 2026</span>
-  </div>
-
-  <div class="hero-kicker">Regulator AI Global, Inc. &nbsp;·&nbsp; Orbital &amp; Aerospace Division</div>
-
-  <h1>Deterministic human override<br>for AI operating in orbit.<br><em>Architecture, not aspiration.</em></h1>
-
-  <p class="hero-sub">
-    AI systems operating in LEO, GEO, deep space, and high-reliability aerospace environments require oversight that functions without ground-in-the-loop latency. Regulator AI delivers deterministic human override as a structural property — enforced at the platform level, documented from first operation.
+<!-- ── Hero ─────────────────────────────────────────────── -->
+<section class="hero">
+  <p class="hero-eyebrow reveal">Orbital &amp; Aerospace AI Governance</p>
+  <h1 class="hero-headline reveal">
+    Uncontrolled AI in orbit
+    <em>cannot wait for ground control.</em>
+  </h1>
+  <p class="hero-sub reveal">
+    Latency eliminates real-time human oversight as an option. Existing governance frameworks were not
+    designed for autonomous systems operating at machine speed, across thousands of nodes,
+    without continuous ground contact. <strong>We have built the solution.</strong> The details are available under NDA.
   </p>
-
-  <div class="embodiment-callout">
-    <div class="ec-num">36</div>
-    <div class="ec-text">
-      The orbital application shown here is <strong>one of 36 documented embodiments</strong> across the patent portfolio. All 22 provisional applications are filed and assigned to Regulator AI Global, Inc. as of March 2026. The same underlying oversight architecture applies across LEO constellations, orbital data centers, autonomous spacecraft, defense platforms, and terrestrial high-reliability systems.
-    </div>
+  <div class="hero-cta-row reveal">
+    <a href="#nda-inquiry" class="btn-primary">Request NDA Package</a>
+    <a href="#risk" class="btn-ghost">Understand the Risk</a>
   </div>
-
-  <div class="hero-actions">
-    <a href="#embodiments" class="btn-primary">View All Embodiments</a>
-    <a href="" class="btn-secondary" onclick="Calendly.initPopupWidget({url:'https://calendly.com/zmichaelakins'});return false;">Request a Technical Briefing</a>
-  </div>
-
-  <div class="hero-stats">
-    <div>
-      <div class="stat-num">22/22</div>
-      <div class="stat-label">Filed &amp; Assigned to Corp.</div>
-    </div>
-    <div>
-      <div class="stat-num">36</div>
-      <div class="stat-label">Documented Embodiments</div>
-    </div>
-    <div>
-      <div class="stat-num">&gt;42K</div>
-      <div class="stat-label">LEO Assets in Target Env.</div>
-    </div>
-    <div>
-      <div class="stat-num">Art. 14</div>
-      <div class="stat-label">EU AI Act — Active</div>
-    </div>
-  </div>
+  <p class="hero-note reveal">Proprietary architecture. Full technical disclosure under executed NDA only.</p>
 </section>
 
-<!-- IP PORTFOLIO -->
-<section id="ip">
-  <div class="section-label">01 — IP Portfolio</div>
-  <h2 class="section-title">22 patents.<br><em>One coherent architecture.</em></h2>
-  <p class="section-intro">
-    Filed across March 2026, the portfolio covers every layer of the oversight stack — from the core supervisory kernel through governance telemetry, predictive simulation, and platform-specific enforcement modules. Each filing is independently defensible and collectively comprehensive.
+<!-- ── Stats Bar ─────────────────────────────────────────── -->
+<div class="stats-bar">
+  <div class="stat-cell">
+    <div class="stat-val">22</div>
+    <div class="stat-label">U.S. Provisionals Filed &amp; Assigned</div>
+  </div>
+  <div class="stat-cell">
+    <div class="stat-val">36+</div>
+    <div class="stat-label">Documented Embodiments</div>
+  </div>
+  <div class="stat-cell">
+    <div class="stat-val">Art. 14</div>
+    <div class="stat-label">EU AI Act — Active Compliance Wedge</div>
+  </div>
+  <div class="stat-cell">
+    <div class="stat-val">One</div>
+    <div class="stat-label">Coherent Architecture — All Embodiments</div>
+  </div>
+</div>
+<div class="gold-rule"></div>
+
+<!-- ── The Risk ──────────────────────────────────────────── -->
+<div id="risk">
+<div class="section">
+  <p class="section-label reveal">The Exposure</p>
+  <h2 class="section-heading reveal risk-intro">
+    The problem is not one AI system.<br>
+    <em>It is every system that AI touches.</em>
+  </h2>
+  <p class="section-body reveal" style="margin-bottom:4rem;">
+    AI operating in orbit, defense platforms, and high-reliability aerospace environments makes
+    consequential decisions faster than any human reviewer can intervene. The governance
+    frameworks protecting those environments were not built for that reality. Regulators,
+    insurers, and licensing authorities are beginning to move. The window for proactive
+    positioning is narrow.
   </p>
 
-  <div class="ip-grid">
-    <div class="ip-card">
-      <div class="ip-card-num">FOUNDATIONAL LAYER</div>
-      <h3>Supervisory Containment Architecture</h3>
-      <p>The core oversight system — governing how AI-generated commands are evaluated before execution in autonomous or semi-autonomous environments. Applies from single-platform deployments through mega-constellation scale.</p>
+  <div class="risk-grid">
+    <div class="risk-card reveal" data-num="01 / LATENCY CONSTRAINT">
+      <h3>Ground-in-the-loop oversight is structurally impossible at orbital scale</h3>
+      <p>Signal round-trip times, contact windows, and node counts make real-time human review
+      physically unavailable. An oversight architecture that requires ground contact to function
+      is not an oversight architecture.</p>
     </div>
-    <div class="ip-card">
-      <div class="ip-card-num">ENFORCEMENT LAYER</div>
-      <h3>Deterministic State Enforcement</h3>
-      <p>A three-state enforcement mechanism that maintains a defined operational boundary regardless of AI system behavior, communication latency, or environmental conditions. Human override remains available as an architectural guarantee.</p>
+    <div class="risk-card reveal" data-num="02 / AUDIT BLIND SPOTS">
+      <h3>Existing audit infrastructure was not built for autonomous action</h3>
+      <p>Traditional logging captures what happened. It cannot establish that a deterministic,
+      human-authorized decision preceded each consequential AI action — a gap that is a material
+      liability under emerging space, defense, and regulatory frameworks.</p>
     </div>
-    <div class="ip-card">
-      <div class="ip-card-num">OBSERVABILITY LAYER</div>
-      <h3>Governance Telemetry &amp; Audit</h3>
-      <p>Continuous, tamper-evident logging of every supervisory evaluation and human authorization event — structured for regulatory submission, insurance review, and legal proceedings without retroactive reconstruction.</p>
-    </div>
-    <div class="ip-card">
-      <div class="ip-card-num">ANTICIPATION LAYER</div>
-      <h3>Predictive Interaction Simulation</h3>
-      <p>Forward-looking evaluation of how AI systems may behave before conditions arise — enabling human reviewers to assess high-risk scenarios and authorize or restrict pathways before outcomes are produced.</p>
-    </div>
-    <div class="ip-card">
-      <div class="ip-card-num">TRANSPORT LAYER</div>
-      <h3>Supervisory Signal Transport</h3>
-      <p>The communication substrate that carries oversight instructions and human override signals to AI systems operating under latency constraints — including deep space, intermittent link, and degraded communication environments.</p>
-    </div>
-    <div class="ip-card">
-      <div class="ip-card-num">PLATFORM LAYER</div>
-      <h3>Platform-Specific Embodiments</h3>
-      <p>Sixteen additional filings covering platform-specific implementations — orbital data centers, autonomous spacecraft, defense systems, aerospace platforms, and terrestrial high-reliability deployments. Each embodiment is independently enabled.</p>
-    </div>
-
-    <div class="ip-highlight">
-      <div class="ip-hl-item">
-        <div class="ip-hl-num">22</div>
-        <div class="ip-hl-label">U.S. provisional applications filed &amp; assigned to Regulator AI Global, Inc. · March 2026</div>
-      </div>
-      <div class="ip-divider"></div>
-      <div class="ip-hl-item">
-        <div class="ip-hl-num">36</div>
-        <div class="ip-hl-label">Documented embodiments across all applications</div>
-      </div>
-      <div class="ip-divider"></div>
-      <div class="ip-hl-item">
-        <div class="ip-hl-num">1</div>
-        <div class="ip-hl-label">Coherent architecture underlying every embodiment</div>
-      </div>
-      <div class="ip-divider"></div>
-      <div class="ip-hl-item">
-        <div class="ip-hl-num">6</div>
-        <div class="ip-hl-label">Distinct IP layers from transport through audit</div>
-      </div>
+    <div class="risk-card reveal" data-num="03 / REGULATORY EXPOSURE">
+      <h3>Documentation requirements are tightening across every relevant authority</h3>
+      <p>EU AI Act Article 14, FCC and ITU constellation licensing, space insurance underwriting,
+      and defense program office requirements are converging on the same demand: verifiable,
+      continuous records of AI oversight activity. Organizations without that documentation
+      face both regulatory and valuation risk.</p>
     </div>
   </div>
-</section>
+</div>
+</div>
 
-<!-- EMBODIMENTS -->
-<section id="embodiments">
-  <div class="section-label">02 — Embodiments</div>
-  <h2 class="section-title">36 embodiments.<br>The orbital case is <em>one of them.</em></h2>
-  <p class="section-intro">
-    The patent portfolio explicitly covers 36 distinct deployment scenarios. Orbital and aerospace are primary embodiments — the same architecture extends without modification to every high-reliability autonomous environment. The enterprise M&amp;A embodiments — detailed at regulator-ai.com — represent eight of the 36 documented deployment contexts.
-  </p>
-
-  <div class="embodiments-intro-block">
-    <div class="eib-label">Portfolio Scope Note</div>
-    <p class="eib-text">
-      This page addresses the orbital and aerospace embodiments in detail. The underlying IP is <strong>platform-agnostic and modular</strong> — every embodiment draws from the same patent claims. Acquirers, licensees, and integrators can adopt a single embodiment or the full stack. The architecture does not require modification between deployment contexts.
-    </p>
-  </div>
-
-  <div class="embodiments-grid">
-
-    <div class="emb-card">
-      <div class="emb-sector">Orbital — Primary</div>
-      <div class="emb-title">LEO Mega-Constellation Operations</div>
-      <div class="emb-problem">40,000+ autonomous nodes; ground oversight latency makes real-time human review structurally impossible</div>
-      <div class="emb-solution">Onboard deterministic enforcement maintains override capability without requiring continuous ground contact</div>
-      <p class="emb-body">The architecture enforces supervisory boundaries at the node level — each satellite operates within documented constraints, with every deviation flagged, logged, and available for ground review when link is restored.</p>
-    </div>
-
-    <div class="emb-card">
-      <div class="emb-sector">Orbital — Primary</div>
-      <div class="emb-title">Orbital Data Centers</div>
-      <div class="emb-problem">AI-managed orbital compute infrastructure processes decisions faster than ground operators can review — creating structural accountability gaps</div>
-      <div class="emb-solution">Every AI-generated compute or routing decision passes through a supervisory evaluation layer before execution</div>
-      <p class="emb-body">The enforcement module integrates with orbital compute platforms to produce a continuous, verified record of every supervised operation — meeting the documentation requirements of space insurance underwriters and national regulatory bodies.</p>
-    </div>
-
-    <div class="emb-card">
-      <div class="emb-sector">Orbital — Primary</div>
-      <div class="emb-title">Autonomous Spacecraft &amp; Rendezvous</div>
-      <div class="emb-problem">Docking, proximity operations, and debris avoidance involve autonomous decisions with collision consequences — oversight cannot wait for round-trip signal latency</div>
-      <div class="emb-solution">Pre-authorized operational envelopes enforce safe behavior; deviations trigger logged escalation regardless of communications status</div>
-      <p class="emb-body">The architecture establishes what the vehicle is authorized to do before the maneuver begins — human authorization is front-loaded into the mission plan, with all deviations captured in the immutable audit record.</p>
-    </div>
-
-    <div class="emb-card">
-      <div class="emb-sector">Aerospace</div>
-      <div class="emb-title">Autonomous Aerial Systems</div>
-      <div class="emb-problem">UAV and autonomous aircraft operating beyond visual line of sight lack a structural mechanism to guarantee override when communications degrade</div>
-      <div class="emb-solution">Onboard enforcement module maintains defined operational boundaries independent of uplink availability</div>
-      <p class="emb-body">The system enforces pre-authorized flight envelopes and escalation protocols — documenting every supervisory event for FAA, EASA, and national airspace authority review.</p>
-    </div>
-
-    <div class="emb-card">
-      <div class="emb-sector">Defense</div>
-      <div class="emb-title">Autonomous Defense Platforms</div>
-      <div class="emb-problem">Autonomous weapons systems and defense AI require uninterruptible human override — procedural safeguards fail under adversarial conditions</div>
-      <div class="emb-solution">Override capability is a structural property of the architecture, not a procedure that depends on communication or human adherence</div>
-      <p class="emb-body">The enforcement module operates independently of the AI system it supervises — it cannot be disabled by the supervised system, produces a tamper-evident record, and maintains override capability under all operating conditions.</p>
-    </div>
-
-    <div class="emb-card">
-      <div class="emb-sector">Space Insurance</div>
-      <div class="emb-title">Orbital Insurance &amp; Liability</div>
-      <div class="emb-problem">Space insurers cannot evaluate AI-driven operational risk or verify that oversight was active when an incident occurred</div>
-      <div class="emb-solution">Continuous, immutable supervision log provides post-incident forensics and pre-incident risk profiling</div>
-      <p class="emb-body">Every supervisory event is logged with timestamp, authorization state, and human decision record — providing underwriters with a complete operational history and operators with documented evidence of oversight compliance.</p>
-    </div>
-
-    <div class="emb-card">
-      <div class="emb-sector">Critical Infrastructure</div>
-      <div class="emb-title">Energy Grid &amp; Utility AI</div>
-      <div class="emb-problem">AI-managed grid operations make decisions at millisecond timescales — human review is structurally bypassed in normal operations</div>
-      <div class="emb-solution">Pre-authorized operational envelopes enforce boundaries; every boundary interaction is logged for regulatory review</div>
-      <p class="emb-body">The architecture integrates with existing SCADA and grid management infrastructure to produce the supervisory documentation that NERC, FERC, and equivalent national regulators require for AI-managed utility operations.</p>
-    </div>
-
-    <div class="emb-card">
-      <div class="emb-sector">M&amp;A / Acquisition</div>
-      <div class="emb-title">AI System Acquisition Integration</div>
-      <div class="emb-problem">Acquired AI systems introduce oversight gaps at the integration boundary — successor liability attaches before oversight continuity is established</div>
-      <div class="emb-solution">Pre-integration evaluation baseline establishes supervisory continuity before systems connect</div>
-      <p class="emb-body">This embodiment — detailed at regulator-ai.com — addresses the M&A use case directly. The same architecture that enforces oversight in orbit enforces it across the acquisition integration boundary.</p>
-    </div>
-
-  </div>
-</section>
-
-<!-- MODULAR ARCHITECTURE -->
-<section id="modular">
-  <div class="section-label">03 — Architecture</div>
-  <h2 class="section-title">Modular by design.<br><em>Deployable at any layer.</em></h2>
-  <p class="section-intro">
-    Every embodiment draws from the same modular component library. Acquirers and licensees can implement a single module or the full stack — the architecture is designed for incremental adoption without requiring wholesale platform replacement.
-  </p>
-
-  <div class="modular-layout">
-    <div class="module-list">
-      <div class="module-row">
-        <span class="module-tag">Layer 1</span>
-        <div class="module-content">
-          <h4>Supervisory Evaluation Engine</h4>
-          <p>Evaluates AI-generated commands against authorized operational parameters before execution. Deployable as firmware, middleware, or cloud service.</p>
-        </div>
-      </div>
-      <div class="module-row">
-        <span class="module-tag">Layer 2</span>
-        <div class="module-content">
-          <h4>State Enforcement Module</h4>
-          <p>Maintains the operational boundary state — enforces defined limits regardless of AI system behavior or communication conditions.</p>
-        </div>
-      </div>
-      <div class="module-row">
-        <span class="module-tag">Layer 3</span>
-        <div class="module-content">
-          <h4>Override Signal Transport</h4>
-          <p>Delivers human override instructions to AI systems operating under latency, intermittent link, or degraded communication constraints.</p>
-        </div>
-      </div>
-      <div class="module-row">
-        <span class="module-tag">Layer 4</span>
-        <div class="module-content">
-          <h4>Predictive Evaluation Module</h4>
-          <p>Models forward system behavior before conditions arise — surfaces risk pathways for human authorization before execution begins.</p>
-        </div>
-      </div>
-      <div class="module-row">
-        <span class="module-tag">Layer 5</span>
-        <div class="module-content">
-          <h4>Governance Telemetry &amp; Audit Log</h4>
-          <p>Produces a continuous, tamper-evident record of every supervisory event, human decision, and override action across the system lifecycle.</p>
-        </div>
-      </div>
-      <div class="module-row">
-        <span class="module-tag">Layer 6</span>
-        <div class="module-content">
-          <h4>Compliance Documentation Export</h4>
-          <p>Formats the audit record for regulatory submission — EU AI Act, FAA, FCC, space agency, insurance underwriter, or legal review.</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="modular-right">
-      <h3>Why modular architecture matters for acquisition</h3>
-      <p>
-        Platform-specific oversight solutions create integration lock-in and require costly replacement when systems are acquired or consolidated. The modular architecture of this portfolio means any single component can be licensed and deployed independently — without requiring the acquirer to replace existing infrastructure.
+<!-- ── The Solution ──────────────────────────────────────── -->
+<section id="solution">
+  <div class="inner">
+    <div class="sol-left">
+      <p class="section-label reveal">The Architecture</p>
+      <h2 class="section-heading reveal">
+        A deterministic supervisory layer.<br>
+        <em>Built before the risk became obvious.</em>
+      </h2>
+      <p class="section-body reveal" style="margin-top:1.5rem;">
+        Regulator AI has developed a foundational governance architecture that enforces
+        human supervisory control as a structural property — across heterogeneous AI systems,
+        operating environments, and regulatory jurisdictions.
       </p>
-      <p>
-        This also means the IP portfolio licenses cleanly. A constellation operator can license Layer 1–2 for enforcement without Layer 4–5. An insurer can license Layer 5–6 for audit without the enforcement stack. Each layer is documented, independently claimed, and deployable without the others.
+      <p class="section-body reveal" style="margin-top:1rem;">
+        The full technical architecture, claims structure, and integration roadmap are
+        available exclusively under executed NDA to qualified counterparties.
       </p>
-      <p>
-        For acquirers evaluating the full portfolio: every embodiment uses the same six-layer stack. Licensing one embodiment creates a natural path to licensing additional verticals without incremental architecture investment.
-      </p>
-      <div class="modular-note">
-        The 36 documented embodiments in the portfolio represent <strong>deployment contexts</strong>, not separate architectures. One architecture. One set of patent claims. 36 addressable markets.
+      <a href="#nda-inquiry" class="btn-primary reveal" style="margin-top:2.5rem; display:inline-block;">
+        Request the NDA Package
+      </a>
+
+      <div class="embodiment-callout reveal">
+        <p>
+          The orbital and aerospace application is <span>one of over 36 documented embodiments</span>
+          across the portfolio. All 22 provisional applications are filed and assigned to
+          Regulator AI Global, Inc. The same underlying architecture applies without modification
+          across LEO constellations, deep space, defense platforms, and terrestrial
+          high-reliability systems.
+        </p>
+      </div>
+    </div>
+
+    <div class="sol-right">
+      <div class="sol-point reveal">
+        <span class="sol-point-icon">→</span>
+        <p><strong>Supervisory control without ground contact</strong> — the architecture enforces
+        human-authorized operational boundaries at the platform level, regardless of communication
+        status or AI system behavior.</p>
+      </div>
+      <div class="sol-point reveal">
+        <span class="sol-point-icon">→</span>
+        <p><strong>Cross-environment enforcement</strong> — supervisory invariants that hold across
+        LEO nodes, aerospace platforms, and defense systems without platform-specific
+        re-engineering.</p>
+      </div>
+      <div class="sol-point reveal">
+        <span class="sol-point-icon">→</span>
+        <p><strong>Immutable audit chain</strong> — cryptographically anchored records structured
+        for regulatory submission, insurance underwriting review, and legal proceedings — without
+        retroactive reconstruction.</p>
+      </div>
+      <div class="sol-point reveal">
+        <span class="sol-point-icon">→</span>
+        <p><strong>Modular, platform-agnostic design</strong> — every embodiment draws from the
+        same architecture. Constellation operators, defense primes, and insurers can license
+        any layer or the full stack — without replacing existing infrastructure.</p>
+      </div>
+      <div class="sol-point reveal">
+        <span class="sol-point-icon">→</span>
+        <p><strong>Designed for acquisition</strong> — the portfolio is structured for integration
+        into constellation platforms, defense programs, and regulated infrastructure environments.
+        One architecture. 36+ addressable markets.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ENVIRONMENTS -->
-<section id="environments">
-  <div class="section-label">04 — Operating Environments</div>
-  <h2 class="section-title">Where the architecture<br><em>has been specified.</em></h2>
-  <p class="section-intro">
-    The patent portfolio explicitly addresses four operating environment categories. Each is documented with platform-specific claims and enabling disclosure.
+<!-- ── Operating Environments ────────────────────────────── -->
+<div id="environments">
+<div class="section">
+  <p class="section-label reveal">Operating Environments</p>
+  <h2 class="section-heading reveal">
+    Where the architecture<br>
+    <em>has been specified.</em>
+  </h2>
+  <p class="section-body reveal" style="margin-top:1rem;">
+    The portfolio explicitly addresses four operating environment categories. Each is documented
+    with environment-specific embodiments and enabling disclosure. Technical details available under NDA.
   </p>
 
   <div class="env-grid">
-    <div class="env-card" data-num="01">
-      <span class="env-icon" role="img" aria-label="Satellite">🛰️</span>
+    <div class="env-card reveal">
+      <span class="env-icon">🛰️</span>
       <h3>Low Earth Orbit &amp; Mega-Constellations</h3>
-      <p>Supervisory enforcement for AI operating across thousands of autonomous nodes under latency constraints that preclude real-time ground oversight. The architecture enforces behavioral boundaries at the node level — producing a fleet-wide audit record synchronized on ground contact.</p>
+      <p>Supervisory enforcement for AI operating across thousands of autonomous nodes under
+      latency constraints that preclude real-time ground oversight. One of the primary
+      embodiments in the portfolio.</p>
       <div class="env-tags">
         <span class="env-tag">LEO</span>
         <span class="env-tag">GEO</span>
@@ -677,10 +808,12 @@ footer {
         <span class="env-tag">Orbital Data Center</span>
       </div>
     </div>
-    <div class="env-card" data-num="02">
-      <span class="env-icon" role="img" aria-label="Rocket">🚀</span>
+    <div class="env-card reveal">
+      <span class="env-icon">🚀</span>
       <h3>Deep Space &amp; Extended Mission</h3>
-      <p>Signal round-trip times measured in minutes or hours make ground-in-the-loop oversight physically impossible. The architecture provides pre-authorized operational envelopes with deterministic enforcement — human authorization is front-loaded; deviation is impossible, not just discouraged.</p>
+      <p>Signal round-trip times measured in minutes or hours make ground-in-the-loop oversight
+      physically impossible. The architecture provides pre-authorized operational enforcement —
+      human authorization is front-loaded.</p>
       <div class="env-tags">
         <span class="env-tag">Deep Space</span>
         <span class="env-tag">Lunar</span>
@@ -688,10 +821,12 @@ footer {
         <span class="env-tag">Extended Mission</span>
       </div>
     </div>
-    <div class="env-card" data-num="03">
-      <span class="env-icon" role="img" aria-label="Aerospace">✈️</span>
+    <div class="env-card reveal">
+      <span class="env-icon">✈️</span>
       <h3>Aerospace &amp; High-Altitude</h3>
-      <p>Autonomous aerial systems, stratospheric platforms, and hypersonic vehicles operating in airspace environments where human override must be structurally guaranteed rather than procedurally assumed. Every enforcement event is logged for airspace authority review.</p>
+      <p>Autonomous aerial systems, stratospheric platforms, and hypersonic vehicles operating
+      where human override must be structurally guaranteed rather than procedurally assumed.
+      Every enforcement event is logged for airspace authority review.</p>
       <div class="env-tags">
         <span class="env-tag">UAV / UAS</span>
         <span class="env-tag">BVLOS</span>
@@ -699,10 +834,12 @@ footer {
         <span class="env-tag">Hypersonic</span>
       </div>
     </div>
-    <div class="env-card" data-num="04">
-      <span class="env-icon" role="img" aria-label="Gear">⚙️</span>
+    <div class="env-card reveal">
+      <span class="env-icon">⚙️</span>
       <h3>High-Reliability Terrestrial</h3>
-      <p>Defense platforms, energy grid AI, industrial automation, and critical infrastructure where AI system failures produce physical consequences. The same deterministic enforcement architecture applies without modification — the operating environment changes; the oversight guarantee does not.</p>
+      <p>Defense platforms, energy grid AI, and critical infrastructure where AI system failures
+      produce physical consequences. The same enforcement architecture applies without
+      modification — the operating environment changes; the oversight guarantee does not.</p>
       <div class="env-tags">
         <span class="env-tag">Defense</span>
         <span class="env-tag">Energy Grid</span>
@@ -711,134 +848,153 @@ footer {
       </div>
     </div>
   </div>
-</section>
+</div>
+</div>
 
-<!-- REGULATORY -->
+<!-- ── Regulatory ─────────────────────────────────────────── -->
 <section id="regulatory">
-  <div class="section-label">05 — Regulatory Alignment</div>
-  <h2 class="section-title">Compliance documentation<br>as a <em>structural output.</em></h2>
-  <p class="section-intro">
-    The architecture generates regulatory compliance documentation as an inherent output — not assembled after the fact and not dependent on human adherence to process. Every supervisory event produces a record. The record is available to regulators on demand.
-  </p>
+  <div class="inner">
+    <p class="section-label reveal">Regulatory Alignment</p>
+    <h2 class="section-heading reveal">
+      Compliance documentation<br>
+      <em>as a structural output.</em>
+    </h2>
+    <p class="section-body reveal" style="margin-top:1rem;">
+      The architecture generates regulatory compliance documentation as an inherent output —
+      not assembled after the fact. Every supervisory event produces a record available
+      to regulators, insurers, and program offices on demand.
+    </p>
 
-  <div class="reg-grid">
-    <div class="reg-card">
-      <div class="reg-body">
-        <div class="reg-standard">EU AI Act — Article 14</div>
-        <p class="reg-desc">Effective human oversight with traceable supervisory actions and documented intervention capability. The architecture enforces Article 14 at the design level — oversight is computable, not aspirational. Every intervention is a logged event.</p>
-        <div class="reg-status">Architecture-Level Compliance</div>
+    <div class="reg-grid">
+      <div class="reg-card reveal">
+        <span class="reg-badge">Active</span>
+        <h3>EU AI Act — Article 14</h3>
+        <p>Human oversight with traceable supervisory actions and documented intervention
+        capability. The architecture enforces Article 14 at the design level — oversight
+        is computable, not aspirational.</p>
       </div>
-    </div>
-    <div class="reg-card">
-      <div class="reg-body">
-        <div class="reg-standard">Space Agency &amp; National Licensing</div>
-        <p class="reg-desc">FCC, ITU, ESA, and national space agency licensing increasingly requires documented AI oversight for constellation operations. The architecture produces the continuous supervisory record that licensing authorities and insurers require for approval and renewal.</p>
-        <div class="reg-status">Documentation-Ready</div>
+      <div class="reg-card reveal">
+        <span class="reg-badge">Documentation-Ready</span>
+        <h3>Space Agency &amp; Licensing</h3>
+        <p>FCC, ITU, ESA, and national space agency licensing increasingly requires documented
+        AI oversight for constellation operations. The architecture produces the continuous
+        supervisory record that licensing authorities require.</p>
       </div>
-    </div>
-    <div class="reg-card">
-      <div class="reg-body">
-        <div class="reg-standard">Space Insurance &amp; Underwriting</div>
-        <p class="reg-desc">Insurers covering orbital AI systems cannot verify oversight was active at the time of an incident without a pre-existing audit record. The architecture generates that record continuously from first operation — available for claims investigation without retroactive reconstruction.</p>
-        <div class="reg-status">Underwriter-Ready</div>
+      <div class="reg-card reveal">
+        <span class="reg-badge">Underwriter-Ready</span>
+        <h3>Space Insurance &amp; Underwriting</h3>
+        <p>Insurers covering orbital AI systems cannot verify oversight was active at the time
+        of an incident without a pre-existing audit record. The architecture generates that
+        record continuously from first operation.</p>
       </div>
-    </div>
-    <div class="reg-card">
-      <div class="reg-body">
-        <div class="reg-standard">Defense &amp; Export Control</div>
-        <p class="reg-desc">ITAR, EAR, and allied-nation equivalents place increasing requirements on AI oversight documentation for autonomous defense systems. The architecture produces a tamper-evident supervisory record that satisfies program office, inspector general, and congressional oversight requirements.</p>
-        <div class="reg-status">Audit-Ready</div>
+      <div class="reg-card reveal">
+        <span class="reg-badge">Audit-Ready</span>
+        <h3>Defense &amp; Export Control</h3>
+        <p>ITAR, EAR, and allied-nation equivalents place increasing requirements on AI
+        oversight documentation for autonomous defense systems. The architecture produces
+        a tamper-evident supervisory record satisfying program office and IG requirements.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- CONTACT -->
-<section id="contact">
-  <div class="section-label">06 — Contact</div>
+<div class="gold-rule"></div>
 
-  <div class="contact-layout">
-    <div class="contact-left">
-      <h2>Licensing, acquisition &amp; technical briefings</h2>
-      <p>
-        The orbital embodiments are available for licensing independently or as part of the full portfolio. Engagements typically begin with a technical briefing scoped to the acquirer's platform and regulatory environment — covering the relevant embodiments, patent claims, and integration approach.
+<!-- ── NDA Inquiry ────────────────────────────────────────── -->
+<section class="nda-section" id="nda-inquiry">
+  <div class="nda-left">
+    <p class="section-label reveal">Qualified Inquiries</p>
+    <h2 class="section-heading reveal">
+      Further information is<br>available under NDA.
+    </h2>
+    <p class="section-body reveal" style="margin-top:1.5rem;">
+      We are engaging with constellation operators, defense and aerospace primes, space insurance
+      underwriters, and M&amp;A principals on a confidential basis. If you represent a qualified
+      counterparty, submit your inquiry and we will respond with the appropriate non-disclosure
+      agreement and evaluation package.
+    </p>
+    <p class="section-body reveal" style="margin-top:1.2rem; font-size:0.88rem; color: rgba(245,240,232,0.38);">
+      Unsolicited licensing proposals, vendor outreach, and non-qualified inquiries
+      will not receive a response.
+    </p>
+    <p class="section-body reveal" style="margin-top:2rem; font-size:0.88rem;">
+      For enterprise M&amp;A, private equity, and insurance underwriter inquiries outside
+      the orbital context, visit
+      <a href="https://regulator-ai.com" style="color:var(--gold); text-decoration:none;">regulator-ai.com</a>.
+    </p>
+  </div>
+
+  <div class="nda-right">
+    <form onsubmit="handleInquiry(event)" autocomplete="off">
+      <label class="form-label" for="org">Organization</label>
+      <input class="form-input" type="text" id="org" name="org" placeholder="Entity name" required />
+
+      <label class="form-label" for="name">Contact Name</label>
+      <input class="form-input" type="text" id="name" name="name" placeholder="Full name" required />
+
+      <label class="form-label" for="email">Business Email</label>
+      <input class="form-input" type="email" id="email" name="email" placeholder="you@organization.com" required />
+
+      <label class="form-label" for="role">Counterparty Type</label>
+      <select class="form-select" id="role" name="role" required>
+        <option value="" disabled selected>Select classification</option>
+        <option>Constellation Operator / Space Prime</option>
+        <option>Defense / Government Prime</option>
+        <option>Space Insurance / Risk Underwriter</option>
+        <option>Aerospace Manufacturer / Integrator</option>
+        <option>Strategic Acquirer / M&amp;A Principal</option>
+        <option>IP Broker / Intermediary</option>
+        <option>Regulatory Counsel / Legal</option>
+        <option>Other Qualified Party</option>
+      </select>
+
+      <label class="form-label" for="message">Brief Context (optional)</label>
+      <textarea class="form-textarea" id="message" name="message"
+        placeholder="Nature of your interest — platform, program, or mandate"></textarea>
+
+      <button type="submit" class="form-submit">Submit Inquiry</button>
+
+      <p class="form-note">
+        Submission does not constitute an offer or obligation.<br/>
+        All communications are held in strict confidence pending NDA execution.
       </p>
-      <div class="contact-detail">
-        <div class="cd-row">
-          <span class="cd-label">Contact</span>
-          <span class="cd-value">Zachary Michael Akins, CEO</span>
-        </div>
-        <div class="cd-row">
-          <span class="cd-label">Company</span>
-          <span class="cd-value">Regulator AI Global, Inc.</span>
-        </div>
-        <div class="cd-row">
-          <span class="cd-label">Email</span>
-          <span class="cd-value"><a href="mailto:zmichaelakins@gmail.com">zmichaelakins@gmail.com</a></span>
-        </div>
-        <div class="cd-row">
-          <span class="cd-label">GitHub</span>
-          <span class="cd-value"><a href="https://github.com/zmichaelakins/ctp-spec" target="_blank">zmichaelakins/ctp-spec</a></span>
-        </div>
-        <div class="cd-row">
-          <span class="cd-label">Enterprise</span>
-          <span class="cd-value"><a href="https://regulator-ai.com" target="_blank">regulator-ai.com</a></span>
-        </div>
-        <div class="cd-row">
-          <span class="cd-label">IP Status</span>
-          <span class="cd-value">22 of 22 Filed &amp; Assigned to Corp. — March 2026</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="contact-right">
-      <div class="inquiry-card">
-        <div class="ic-type">Constellation Operators</div>
-        <div class="ic-title">Orbital Enforcement Licensing</div>
-        <p class="ic-desc">Technical briefing covering the LEO and mega-constellation embodiments — architecture review, claims summary, and integration pathway for existing platforms.</p>
-      </div>
-      <div class="inquiry-card">
-        <div class="ic-type">Defense &amp; Aerospace Primes</div>
-        <div class="ic-title">Platform Integration Assessment</div>
-        <p class="ic-desc">Scoping session for defense and aerospace prime contractors evaluating deterministic oversight architecture for autonomous platform programs.</p>
-      </div>
-      <div class="inquiry-card">
-        <div class="ic-type">Space Insurance &amp; Finance</div>
-        <div class="ic-title">Underwriting &amp; Risk Profile</div>
-        <p class="ic-desc">For insurers and space finance institutions evaluating the audit architecture as a condition of coverage or investment for AI-managed orbital assets.</p>
-      </div>
-      <div class="inquiry-card">
-        <div class="ic-type">Portfolio Acquisition</div>
-        <div class="ic-title">Full Portfolio M&amp;A Briefing</div>
-        <p class="ic-desc">For acquirers evaluating the full 22-patent portfolio across all 36 embodiments. Includes architectural overview, claims mapping, and a walkthrough of all eight enterprise M&amp;A embodiments alongside the orbital and defense stack.</p>
-      </div>
-    </div>
+    </form>
   </div>
 </section>
 
-<!-- CROSS-LINK -->
-<section style="background: var(--surface); border-top: 1px solid var(--border); padding: 48px;">
-  <div style="max-width: 720px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 24px;">
-    <div>
-      <div class="section-label" style="margin-bottom: 8px;">Also in this portfolio</div>
-      <p style="font-family: 'Libre Baskerville', serif; font-size: 20px; font-weight: 700; margin-bottom: 8px;">AI Acquisition &amp; Integration Risk</p>
-      <p style="font-size: 14px; color: var(--text-secondary); max-width: 480px;">The same architecture applied to M&amp;A successor liability, pre-close AI behavioral evaluation, and post-close oversight continuity across enterprise acquisitions.</p>
-    </div>
-    <a href="https://regulator-ai.com" target="_blank" class="btn-secondary" style="white-space: nowrap;">View Enterprise Division →</a>
-  </div>
-</section>
+<div class="gold-rule"></div>
 
-<!-- FOOTER -->
+<!-- ── Footer ────────────────────────────────────────────── -->
 <footer>
-  <div class="footer-left">
-    © 2026 Regulator AI Global, Inc. · Highland Village, TX · Patent Pending · 22 U.S. Provisionals Filed &amp; Assigned
-  </div>
+  <span class="footer-logo">Regulator AI Global, Inc.</span>
+  <ul class="footer-links">
+    <li><a href="https://github.com/zmichaelakins/ctp-spec" target="_blank">GitHub</a></li>
+    <li><a href="https://regulator-ai.com">Enterprise Division</a></li>
+    <li><a href="mailto:zmichaelakins@gmail.com">Contact</a></li>
+  </ul>
   <div class="footer-right">
-    <a href="https://github.com/zmichaelakins/ctp-spec" target="_blank">GitHub</a>
-    <a href="https://regulator-ai.com" target="_blank">Enterprise Division</a>
-    <a href="mailto:zmichaelakins@gmail.com">Contact</a>
+    Highland Village, TX &nbsp;·&nbsp; Delaware C-Corp<br/>
+    regulator-ai.com &nbsp;·&nbsp; regulator.life<br/>
+    <span style="color:rgba(245,240,232,0.15);">© 2026 Regulator AI Global, Inc. All rights reserved. Patent pending.</span>
   </div>
 </footer>
+
+<script>
+  /* stagger sibling reveals */
+  document.querySelectorAll('.reveal').forEach((el, i) => {
+    el.style.animationDelay = (i * 0.06) + 's';
+  });
+
+  /* ── Form handler ──────────────────────────────────────── */
+  function handleInquiry(e) {
+    e.preventDefault();
+    const btn = e.target.querySelector('.form-submit');
+    btn.textContent = 'Inquiry Received';
+    btn.style.background = 'rgba(201,151,58,0.22)';
+    btn.style.color = 'var(--gold)';
+    btn.disabled = true;
+  }
+</script>
 
 </body>
 </html>
