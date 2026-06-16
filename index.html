@@ -2,6 +2,15 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+
+<!-- Google Analytics 4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-TPRY7PJYMP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){ dataLayer.push(arguments); }
+  gtag('js', new Date());
+  gtag('config', 'G-TPRY7PJYMP');
+</script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Regulator AI Global — Human Authority During Orbital Blackout</title>
   <meta name="description" content="Patent-pending Human Firewall architecture for autonomous spacecraft and orbital infrastructure. Human authority prepared before blackout, enforced onboard, and audited after reconnection." />
@@ -120,6 +129,39 @@
       border-color: var(--gold) !important;
       color: var(--gold-pale) !important;
     }
+    .nav-enterprise {
+      background: transparent;
+      border: 1px solid var(--cyan-dim);
+      color: var(--cyan) !important;
+      padding: 0.45rem 1.1rem;
+      border-radius: 3px;
+      font-size: 0.75rem !important;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45em;
+      transition: background 0.2s, border-color 0.2s !important;
+      white-space: nowrap;
+    }
+    .nav-enterprise:hover {
+      background: rgba(78,205,196,0.10) !important;
+      border-color: var(--cyan) !important;
+      color: var(--white) !important;
+    }
+    .nav-enterprise-dot {
+      width: 5px; height: 5px;
+      border-radius: 50%;
+      background: var(--cyan);
+      display: inline-block;
+      flex-shrink: 0;
+      animation: entpulse 2.6s ease-in-out infinite;
+    }
+    @keyframes entpulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.35; transform: scale(0.55); }
+    }
     .nav-hamburger {
       display: none;
       flex-direction: column;
@@ -141,6 +183,7 @@
     @media (max-width: 760px) {
       .nav-links { display: none; }
       .nav-hamburger { display: flex; }
+      .nav-enterprise-fixed { display: inline-flex; }
       .nav-links.open {
         display: flex;
         flex-direction: column;
@@ -1058,6 +1101,7 @@
   <!-- NAVIGATION -->
   <nav id="nav" role="navigation" aria-label="Main navigation">
     <a href="#hero" class="nav-logo">Regulator AI Global</a>
+    <a href="https://regulator-ai.com" target="_blank" rel="noopener" class="nav-enterprise nav-enterprise-fixed"><span class="nav-enterprise-dot"></span>Enterprise ↗</a>
     <button class="nav-hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
@@ -1459,12 +1503,12 @@
 
       <div class="evidence-grid reveal">
         <div class="evidence-cell">
-          <div class="num">33</div>
+          <div class="num">34</div>
           <div class="label">Provisional patent filings across the core architectural portfolio, spanning governance, control, override, boundary, and audit functions.</div>
         </div>
         <div class="evidence-cell">
-          <div class="num">3</div>
-          <div class="label">Non-provisional applications in final draft, with 4 additional non-provisionals in preparation. The portfolio covers the core supervisory control plane, integration boundary, and orbital override architectures.</div>
+          <div class="num">4</div>
+          <div class="label">Non-provisional applications fully drafted (NP1–NP4), with 3 additional non-provisionals planned. The portfolio covers the unified control plane, integration boundary, human authority override, and runtime telemetry integrity architectures.</div>
         </div>
         <div class="evidence-cell">
           <div class="num">6</div>
